@@ -32,6 +32,7 @@ class Event(models.Model):
     time = models.DateTimeField(blank=False, null=False)
     duration = models.TimeField(blank=False, null=False)
     content = models.TextField(blank=False, null=False)
+    location = models.CharField(max_length=255, blank=False, null=False)
     banner = models.ImageField(upload_to='event_banners/%Y/%m/%d/')
     managed_by = models.ForeignKey(to="Organization", on_delete=models.DO_NOTHING, blank=False, null=False)
 

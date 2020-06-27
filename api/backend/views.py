@@ -1,5 +1,4 @@
 from django.http import JsonResponse
-from rest_framework.parsers import JSONParser
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from .serializers import *
