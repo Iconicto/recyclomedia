@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  recyclomedia_db:
+    image: postgres
+    container_name: recyclomedia-Postgres-Development
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: ${DATABASE_NAME}
+    volumes:
+      - postgres-recyclomedia:/var/lib/postgresql/data
+  recyclomedia_web:
+    container_name: recyclomedia-Django-Development
+    restart: unless-stopped
+    build:
+      context: ../..
+      dockerfile: .github/development/Dockerfile
+    command: sh -c "python manage.py migrate --noinput && python manage.py runserver 0.0.0.0:8000"
+    environment:
+      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
+      DJANGO_DEBUG: ${DJANGO_DEBUG}
+      DATABASE_ENGINE: ${DATABASE_ENGINE}
+      DATABASE_NAME: ${DATABASE_NAME}
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      DATABASE_HOST: ${DATABASE_HOST}
+      DATABASE_PORT: ${DATABASE_PORT}
+      DJANGO_LOGLEVEL: ${DJANGO_LOGLEVEL}
+    volumes:
+      - /app/venv
+      - ../../:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - recyclomedia_db
+volumes:
+  postgres-recyclomedia:
+    driver: local
