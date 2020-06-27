@@ -36,6 +36,6 @@ jobs:
         env:
           IMAGE_NAME: registry.digitalocean.com/iconicto/recyclomedia
       - name: Deploy to Cluster
-        run: kubectl --namespace macbeth set image deployment recyclomedia-deployment recyclomedia=${IMAGE_NAME}:commit-${GITHUB_SHA:0:8}
+        run: kubectl set image deployment recyclomedia-deployment recyclomedia=${IMAGE_NAME}:commit-${GITHUB_SHA:0:8}
         env:
           IMAGE_NAME: registry.digitalocean.com/iconicto/recyclomedia
