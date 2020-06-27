@@ -2,8 +2,9 @@ FROM python:alpine
 
 ADD api/requirements.txt /app/requirements.txt
 
+RUN apk add --no-cache jpeg-dev zlib-dev
 RUN set -ex \
-    && apk add --no-cache --virtual .build-deps postgresql-dev peg-dev zlib-dev linux-headers build-base libffi-dev \
+    && apk add --no-cache --virtual .build-deps postgresql-dev build-base libffi-dev  \
     && python -m venv /env \
     && /env/bin/pip install --upgrade pip \
     && /env/bin/pip install --no-cache-dir -r /app/requirements.txt \
