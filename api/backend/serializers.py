@@ -8,19 +8,31 @@ class UserSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class BasicUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('user_id', 'first_name', 'last_name', 'email', 'experience_points')
+
+
 class OrganizationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Organization
-        fields = "__all__"
+        fields = ('org_id', 'name', 'email', 'org_picture')
 
 
 class EventSerializer(serializers.ModelSerializer):
+    managed_by = OrganizationSerializer(many=False, read_only=True)
+
     class Meta:
         model = Event
-        fields = "__all__"
+        fields = ('event_id', 'name', 'time', 'duration', 'content', 'banner', 'managed_by')
 
 
 class PostSerializer(serializers.ModelSerializer):
+    posted_by = BasicUserSerializer(many=False, read_only=True)
+
     class Meta:
         model = Post
-        fields = "__all__"
+        fields = ('post_id', 'title', 'banner', 'type', 'link', 'content', 'posted_by', 'created_at', 'updated_at')
+
+

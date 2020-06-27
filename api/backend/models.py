@@ -12,7 +12,7 @@ class User(models.Model):
     profile_picture = models.ImageField(upload_to='profile_picture/%Y/%m/%d/')
 
     def __str__(self):
-        return f"{self.user_id} - {self.first_name} {self.last_name}".strip()
+        return f"{self.first_name} {self.last_name}".strip()
 
 
 class Organization(models.Model):
