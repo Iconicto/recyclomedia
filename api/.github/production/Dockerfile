@@ -17,7 +17,6 @@ RUN set -ex \
 
 COPY api/. /app
 WORKDIR /app
-CMD ["mkdir", "-p", "recyclomedia/static"]
 
 ENV VIRTUAL_ENV /env
 ENV PATH /env/bin:$PATH
