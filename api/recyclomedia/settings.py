@@ -165,6 +165,7 @@ REST_FRAMEWORK = {
 }
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 if os.getenv('S3_ACCESS_KEY_ID'):
     AWS_DEFAULT_ACL = os.getenv('AWS_DEFAULT_ACL').strip()
@@ -189,4 +190,5 @@ if os.getenv('S3_ACCESS_KEY_ID'):
 
 
 else:
-    STATIC_URL = os.getenv("STATIC_URL", "/static/")
+    STATIC_URL = "/static/"
+    MEDIA_URL = os.path.join(BASE_DIR, "/media/")
