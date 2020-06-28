@@ -12,7 +12,7 @@ class User(models.Model):
     profile_picture = models.ImageField(upload_to='profile_picture/%Y/%m/%d/')
 
     def __str__(self):
-        return f"{self.user_id} - {self.first_name} {self.last_name}".strip()
+        return f"{self.first_name} {self.last_name}".strip()
 
 
 class Organization(models.Model):
@@ -32,6 +32,7 @@ class Event(models.Model):
     time = models.DateTimeField(blank=False, null=False)
     duration = models.TimeField(blank=False, null=False)
     content = models.TextField(blank=False, null=False)
+    location = models.CharField(max_length=255, blank=False, null=False)
     banner = models.ImageField(upload_to='event_banners/%Y/%m/%d/')
     managed_by = models.ForeignKey(to="Organization", on_delete=models.DO_NOTHING, blank=False, null=False)
 

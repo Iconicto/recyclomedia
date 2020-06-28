@@ -16,7 +16,6 @@ class OrganizationAdmin(admin.ModelAdmin):
 
 
 class EventAdmin(admin.ModelAdmin):
-    print([field.name for field in Event._meta.get_fields()])
     list_display = ('event_id', 'name', 'time', 'duration', 'content', 'banner', 'managed_by')
     list_display_links = ('event_id', 'name', 'time', 'duration', 'content', 'banner', 'managed_by')
     list_filter = ('event_id', 'name', 'time', 'duration', 'content', 'banner', 'managed_by')
@@ -30,9 +29,10 @@ class EventAdmin(admin.ModelAdmin):
 
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in Post._meta.get_fields()]
-    list_display_links = [field.name for field in Post._meta.get_fields()]
-    list_filter = [field.name for field in Post._meta.get_fields()]
+    list_display = ('post_id', 'title', 'banner', 'type', 'link', 'content', 'posted_by', 'created_at', 'updated_at')
+    list_display_links = (
+        'post_id', 'title', 'banner', 'type', 'link', 'content', 'posted_by', 'created_at', 'updated_at')
+    list_filter = ('type', 'posted_by')
     list_per_page = 30
 
 
