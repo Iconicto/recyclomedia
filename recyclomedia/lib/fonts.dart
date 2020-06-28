@@ -4,6 +4,8 @@ class Fonts {
 }
 
 class FontSize{
-  static const double Heading = 16;
+  static const double Heading = 30;
   static const double NavItem = 20;
+  static const double userCardText = 20;
+  static const double userCardHeading = 25;
 }

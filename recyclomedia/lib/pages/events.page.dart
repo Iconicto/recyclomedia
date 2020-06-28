@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:recyclomedia/fonts.dart';
+import 'package:recyclomedia/layout.constants.dart';
 import '../widgets/eventsCard.dart';
 
-class eventsPage extends StatefulWidget {
+class EventsPage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => new _eventsPageState();
+  State<StatefulWidget> createState() => new _EventsPageState();
 }
 
-class _eventsPageState extends State<eventsPage> {
+class _EventsPageState extends State<EventsPage> {
 
   @override
   void initState() {
@@ -35,7 +37,7 @@ class _eventsPageState extends State<eventsPage> {
           Text(
             "Events",
             style: TextStyle(
-              fontFamily: 'SilkScreen',
+              fontFamily: Fonts.SilkScreen,
               fontWeight: FontWeight.w700,
               color: Colors.white
             ),
@@ -44,7 +46,7 @@ class _eventsPageState extends State<eventsPage> {
           Text(
             "Discover the events near you...",
             style: TextStyle(
-              fontFamily: 'SilkScreen',
+              fontFamily: Fonts.SilkScreen,
               //fontWeight: FontWeight.w700,
               color: Colors.white
             ),
@@ -55,7 +57,7 @@ class _eventsPageState extends State<eventsPage> {
     );
 
     final cardContainer = Container(
-      margin: EdgeInsets.only(left: 18.0, right: 18.0),
+      margin: EdgeInsets.only(left: Layout.marginTrailingLeading, right: Layout.marginTrailingLeading),
       child: ListView(
       shrinkWrap: true,
       children: [
