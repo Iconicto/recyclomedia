@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:recyclomedia/models/event.model.dart';
 import 'package:recyclomedia/pages/eventDetails.page.dart';
 import '../widgets/eventsCard.dart';
+import 'package:audioplayers/audio_cache.dart';
 import 'login.page.dart';
+
+const clicksound = "audio/click.wav";
 
 class EventsPage extends StatefulWidget {
   @override
@@ -122,7 +125,11 @@ class _EventsPageState extends State<EventsPage> {
   }
 }
 
+const alarmAudioPath = "click_sound.mp3";
+
 class BuildList extends StatelessWidget {
+  static AudioCache player = new AudioCache();
+
   const BuildList({Key key, this.eventData}) : super(key: key);
 
   final List<Event> eventData;
@@ -136,6 +143,7 @@ class BuildList extends StatelessWidget {
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
+              player.play(clicksound);
               Navigator.push(
                   context,
                   MaterialPageRoute(

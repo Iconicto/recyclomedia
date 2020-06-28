@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audio_cache.dart';
+
+const levelsound = "audio/pageload.wav";
+const eventsound = "audio/eventsound.wav";
 
 class ProfilePage extends StatefulWidget {
   ProfilePage();
@@ -10,6 +14,7 @@ class ProfilePage extends StatefulWidget {
 }
 
 class ProfilePageState extends State<ProfilePage> {
+  static AudioCache player = new AudioCache();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -65,15 +70,18 @@ class ProfilePageState extends State<ProfilePage> {
                   ),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Image.asset('lib/assets/images/level.png'),
-                        Text(
-                          "Level 10",
-                          style: TextStyle(fontSize: 18),
-                        ),
-                      ],
+                    child: GestureDetector(
+                      onTap: () => player.play(levelsound),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Image.asset('lib/assets/images/level.png'),
+                          Text(
+                            "Level 10",
+                            style: TextStyle(fontSize: 18),
+                          ),
+                        ],
+                      ),
                     ),
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.black, width: 5),
@@ -85,15 +93,18 @@ class ProfilePageState extends State<ProfilePage> {
                   ),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Image.asset('lib/assets/images/event.png'),
-                        Text(
-                          "10 Event(s)",
-                          style: TextStyle(fontSize: 18),
-                        ),
-                      ],
+                    child: GestureDetector(
+                      onTap: () => player.play(eventsound),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Image.asset('lib/assets/images/event.png'),
+                          Text(
+                            "10 Event(s)",
+                            style: TextStyle(fontSize: 18),
+                          ),
+                        ],
+                      ),
                     ),
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.black, width: 5),
