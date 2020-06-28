@@ -1,7 +1,10 @@
+import 'package:audioplayers/audio_cache.dart';
 import 'package:flutter/material.dart';
 import 'package:recyclomedia/pages/donations.page.dart';
 import 'package:recyclomedia/pages/aboutus.page.dart';
 import 'package:recyclomedia/pages/landing.page.dart';
+
+const clicksound = "audio/click.wav";
 
 class SettingsPage extends StatefulWidget {
   SettingsPage();
@@ -13,6 +16,7 @@ class SettingsPage extends StatefulWidget {
 }
 
 class SettingsPageState extends State<SettingsPage> {
+  static AudioCache player = new AudioCache();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -70,6 +74,7 @@ class SettingsPageState extends State<SettingsPage> {
                     ),
                     GestureDetector(
                       onTap: () {
+                        player.play(clicksound);
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -100,7 +105,8 @@ class SettingsPageState extends State<SettingsPage> {
                       height: 15,
                     ),
                     GestureDetector(
-                      onTap: (){
+                      onTap: () {
+                        player.play(clicksound);
                         Navigator.push(
                           context,
                           new MaterialPageRoute(
@@ -132,6 +138,7 @@ class SettingsPageState extends State<SettingsPage> {
                     ),
                     GestureDetector(
                       onTap: () {
+                        player.play(clicksound);
                         Navigator.push(
                           context,
                           MaterialPageRoute(
