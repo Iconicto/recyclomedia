@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recyclomedia/fonts.dart';
-import 'package:recyclomedia/pages/event.page.dart';
+import 'package:recyclomedia/pages/events.page.dart';
 import 'package:recyclomedia/pages/profile.page.dart';
 import 'package:recyclomedia/pages/settings.page.dart';
 import 'dashboard.page.dart';
@@ -16,7 +16,7 @@ class _HomeState extends State<Home> {
   int _currentNavIndex = 0;
   final List<Widget> _children = [
     DashboardPage(Colors.blue),
-    EventsPage(Colors.tealAccent),
+    EventsPage(),
     ProfilePage(Colors.deepOrange),
     SettingsPage(Colors.green)
   ];
@@ -33,7 +33,7 @@ class _HomeState extends State<Home> {
         onTap: onTabTapped,
         currentIndex: _currentNavIndex,
         items: [
-          NavigationItem(Icons.home, "H", "ome"),
+          NavigationItem(Icons.home, "H", "rme"),
           NavigationItem(Icons.flag, "E", "vents"),
           NavigationItem(Icons.person, "P", "rofile"),
           NavigationItem(Icons.settings, "S", "ettings"),
