@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recyclomedia/pages/donations.page.dart';
 import 'package:recyclomedia/pages/aboutus.page.dart';
+import 'package:recyclomedia/pages/landing.page.dart';
 
 class SettingsPage extends StatefulWidget {
   SettingsPage();
@@ -129,21 +130,31 @@ class SettingsPageState extends State<SettingsPage> {
                       color: Colors.transparent,
                       height: 15,
                     ),
-                    Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Image.asset('lib/assets/images/level.png'),
-                          Text(
-                            "Sign Out",
-                            style: TextStyle(fontSize: 18),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (ctx) => LandingPage(),
                           ),
-                        ],
-                      ),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black, width: 5),
+                        );
+                      },
+                      child: Container(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Image.asset('lib/assets/images/level.png'),
+                            Text(
+                              "Sign Out",
+                              style: TextStyle(fontSize: 18),
+                            ),
+                          ],
+                        ),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black, width: 5),
+                        ),
                       ),
                     ),
                   ],
