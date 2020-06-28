@@ -99,14 +99,20 @@ class BuildList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ListView.builder(
-        shrinkWrap: true,
-        itemCount: eventData.length,
-        itemBuilder: (context, index) {
-          return EventsCard(eventData[index].name, eventData[index].banner);
-        },
-      ),
+    return Column(
+      children: [
+
+        Container(
+          child: ListView.builder(
+            shrinkWrap: true,
+            itemCount: eventData.length,
+            itemBuilder: (context, index) {
+              return EventsCard(eventData[index].name,"from 830 am onwards", eventData[index].banner);
+            },
+          ),
+        ),
+      ],
     );
   }
+
 }

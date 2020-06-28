@@ -99,7 +99,12 @@ class DashboardPageState extends State<DashboardPage> {
           scrollDirection: Axis.vertical,
           physics: ScrollPhysics(),
           children: [
-            eventsCard("Beach Cleanup 2020", "from 8.30 am onwards", Images.mountain),
+            EventsCard("Unawatuna Beach Cleanup 2020", "from 8.30 am onwards", Images.sunset),
+            EventsCard("Beach Cleanup 2020", "from 9.30 am onwards", Images.mountain),
+            EventsCard("Beach Cleanup 2020", "from 8.30 am onwards", Images.mountain),
+            EventsCard("Beach Cleanup 2020", "from 8.30 am onwards", Images.mountain),
+            EventsCard("Beach Cleanup 2020", "from 8.30 am onwards", Images.mountain),
+            EventsCard("Beach Cleanup 2020", "from 8.30 am onwards", Images.mountain),
 //            eventsCard("Akash's Gay Marriage", Images.forest),
 //            eventsCard("Akash's Gay Marriage", Images.sunset),
 //            eventsCard("Beach Cleanup 2020", Images.mountain),
@@ -116,7 +121,7 @@ class DashboardPageState extends State<DashboardPage> {
         child: Column(
           children: [
             Expanded(
-              flex: 3,
+              flex: 5,
               child: Stack(
                 children: [
                   Container(
