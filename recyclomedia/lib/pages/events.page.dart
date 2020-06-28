@@ -1,6 +1,7 @@
 import 'package:recyclomedia/api/Events/event.provider.dart';
 import 'package:flutter/material.dart';
 import 'package:recyclomedia/models/event.model.dart';
+import 'package:recyclomedia/pages/eventDetails.page.dart';
 import '../widgets/eventsCard.dart';
 
 class EventsPage extends StatefulWidget {
@@ -112,7 +113,25 @@ class BuildList extends StatelessWidget {
         shrinkWrap: true,
         itemCount: eventData.length,
         itemBuilder: (context, index) {
-          return EventsCard(eventData[index].name, eventData[index].banner);
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => EventDetails(
+                        eventName: eventData[index].name,
+                        eventBanner: eventData[index].banner,
+                        eventOrg: eventData[index].managedBy.name,
+                        eventDate:
+                            eventData[index].time.toString().split("T")[0],
+                        eventTime: eventData[index].duration,
+                        eventDes: eventData[index].content,
+                        eventOrgBanner: eventData[index].managedBy.orgPicture,
+                        eventOrgEmail: eventData[index].managedBy.email),
+                  ));
+            },
+            child: EventsCard(eventData[index].name, eventData[index].banner),
+          );
         },
       ),
     );

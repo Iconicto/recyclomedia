@@ -1,6 +1,26 @@
 import 'package:flutter/material.dart';
 
 class EventDetails extends StatefulWidget {
+  final String eventName;
+  final String eventBanner;
+  final String eventOrg;
+  final String eventDate;
+  final String eventTime;
+  final String eventDes;
+  final String eventOrgBanner;
+  final String eventOrgEmail;
+
+  const EventDetails({
+    this.eventName,
+    this.eventBanner,
+    this.eventOrg,
+    this.eventDate,
+    this.eventTime,
+    this.eventDes,
+    this.eventOrgBanner,
+    this.eventOrgEmail,
+  });
+
   @override
   State<StatefulWidget> createState() => new _EventDetailsState();
 }
@@ -21,8 +41,7 @@ class _EventDetailsState extends State<EventDetails> {
       height: 0.30 * vh,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: NetworkImage(
-              "https://cdn.iconicto.com/recyclomedia/media/event_banners/2020/06/28/RS7824_ThinkstockPhotos-506316644-hig.jpg"),
+          image: NetworkImage('${widget.eventBanner}'),
           fit: BoxFit.cover,
         ),
       ),
@@ -34,7 +53,7 @@ class _EventDetailsState extends State<EventDetails> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            "Beach Cleanup 2020",
+            '${widget.eventName}',
             style: TextStyle(
                 fontFamily: 'SilkScreen',
                 fontWeight: FontWeight.w700,
@@ -42,7 +61,7 @@ class _EventDetailsState extends State<EventDetails> {
             textScaleFactor: 2,
           ),
           Text(
-            "by United Nations",
+            "by " + '${widget.eventOrg}',
             style: TextStyle(
                 fontFamily: 'SilkScreen',
                 fontWeight: FontWeight.w700,
@@ -61,8 +80,11 @@ class _EventDetailsState extends State<EventDetails> {
                         color: Color(0xFFE93B55),
                         size: 30.0,
                       ),
+                      SizedBox(
+                        height: 5.0,
+                      ),
                       Text(
-                        "21/12/1111",
+                        '${widget.eventDate}',
                         style: TextStyle(
                             fontFamily: 'SilkScreen',
                             fontWeight: FontWeight.w700,
@@ -80,8 +102,11 @@ class _EventDetailsState extends State<EventDetails> {
                       color: Color(0xFFE93B55),
                       size: 30.0,
                     ),
+                    SizedBox(
+                      height: 5.0,
+                    ),
                     Text(
-                      "17.00PM",
+                      '${widget.eventTime}',
                       style: TextStyle(
                           fontFamily: 'SilkScreen',
                           fontWeight: FontWeight.w700,
@@ -100,8 +125,7 @@ class _EventDetailsState extends State<EventDetails> {
 
     final eventDescription = Container(
       padding: EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
-      child: Text(
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque turpis odio, posuere vel dapibus at, faucibus vitae magna. Aenean velit lectus, commodo vitae posuere non, pharetra vitae neque. Maecenas quis pretium nisl. Integer blandit massa urna, dignissim pellentesque lacus efficitur ac. Suspendisse fringilla nec ante vel tincidunt. Nulla facilisi. Duis semper quam sed purus vulputate, vel consectetur mauris tincidunt. Nam tempor vitae lectus non molestie. Donec vel nisl gravida, mattis ex a, semper ligula. Curabitur vel elit ac elit lobortis aliquet. Fusce iaculis neque id posuere malesuada. Donec fringilla lectus orci, eu egestas risus egestas sit amet. Mauris scelerisque lobortis posuere. Nam volutpat cursus nulla, et tristique tortor porta et. Sed sodales, turpis sit amet blandit facilisis, dui erat consequat felis, eget molestie felis ex ac nulla.",
+      child: Text('${widget.eventDes}',
           style: TextStyle(
               fontFamily: 'SilkScreen',
               fontWeight: FontWeight.w700,
@@ -113,7 +137,7 @@ class _EventDetailsState extends State<EventDetails> {
     final organizerCard = new Container(
         width: vw,
         margin:
-            EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0, bottom: 20.0),
+            EdgeInsets.only(top: 20.0, left: 10.0, right: 10.0, bottom: 20.0),
         padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
         decoration:
             BoxDecoration(border: Border.all(color: Colors.black, width: 5)),
@@ -121,7 +145,7 @@ class _EventDetailsState extends State<EventDetails> {
           children: <Widget>[
             Center(
                 child: Image.network(
-              "https://cdn.iconicto.com/recyclomedia/media/org_picture/2020/06/28/org_pic_2.png",
+              '${widget.eventOrgBanner}',
               height: 80,
             )),
             Center(
@@ -132,7 +156,7 @@ class _EventDetailsState extends State<EventDetails> {
               ),
             ),
             Text(
-              "Starbucks",
+              '${widget.eventOrg}',
               style: TextStyle(
                   fontFamily: 'SilkScreen',
                   fontWeight: FontWeight.w700,
@@ -150,7 +174,7 @@ class _EventDetailsState extends State<EventDetails> {
                 ),
                 SizedBox(width: 10.0),
                 Text(
-                  "starbucks@gmail.com",
+                  '${widget.eventOrgEmail}',
                   style: TextStyle(
                       fontFamily: 'SilkScreen',
                       fontWeight: FontWeight.w400,
