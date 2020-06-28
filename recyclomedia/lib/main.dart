@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         fontFamily: Fonts.SilkScreen,
       ),
-      home: DonationsPage(),
+      home: Home(),
     );
   }
 }

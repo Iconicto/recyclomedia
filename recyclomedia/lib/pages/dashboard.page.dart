@@ -76,7 +76,7 @@ class DashboardPageState extends State<DashboardPage> {
       padding: vh > 680 ? EdgeInsets.only(top: 0.06 * vh) : EdgeInsets.only(top: 0.02 * vh),
       child: Column(
         children: [
-          vh > 680 ? verticalHeader : horizontalHeader,
+          vh > 480 ? verticalHeader : horizontalHeader,
           Container(
             margin: EdgeInsets.only(top: Layout.contentSpacing),
             child: Align(

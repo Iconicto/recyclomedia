@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:recyclomedia/fonts.dart';
+import 'package:recyclomedia/images.dart';
 
 import 'login.page.dart';
 
@@ -21,21 +23,51 @@ class _DonationsPageState extends State<DonationsPage> {
                   width: double.infinity,
                   color: Colors.red,
                   child: Image.asset(
-                    "lib/assets/images/signup.png",
-                    fit: BoxFit.fill,
+                    Images.donationsGIF,
+                    fit: BoxFit.cover,
                   ),
                 ),
+
                 Positioned(
-                  top: 65,
-                  left: 25,
-                  child: Text(
-                    "Sign Up",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold),
+                  bottom: MediaQuery.of(context).viewPadding.top < 0 ? 65 : 20,
+                  left: 0,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.pop(context);
+                        },
+                        child: Row(
+                          children: [
+                            Icon(Icons.chevron_left, color: Colors.black, size: 40,),
+                            Text(
+                              "Donations",
+                              style: TextStyle(
+                                shadows: <Shadow>[
+                                  Shadow(
+                                    offset: Offset(0, 0),
+                                    blurRadius: 20.0,
+                                    color: Colors.white,
+                                  ),
+                                  Shadow(
+                                    offset: Offset(0, 0),
+                                    blurRadius: 10.0,
+                                    color: Colors.white,
+                                  ),
+//
+                                ],
+                                color: Colors.black,
+                                fontSize: 40,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                )
+                ),
               ],
             ),
           ),
@@ -50,88 +82,17 @@ class _DonationsPageState extends State<DonationsPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Divider(
-                        height: 20,
-                        color: Colors.transparent,
-                      ),
-                      Text("Username"),
+                      Text(
+                          "We are people of same earth trying to save the very world we live on. Our goal is to promote environmental activism and donate to charities. So help us make this world a better place. ", style: TextStyle(fontSize: 18 ),textAlign: TextAlign.justify,),
+                      Text("Amount"),
                       Divider(
                         height: 5,
                         color: Colors.transparent,
                       ),
                       TextField(
+                        keyboardType: TextInputType.numberWithOptions(),
                         decoration: InputDecoration(
-                          hintText: 'Enter your username here',
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Colors.black,
-                              width: 5,
-                            ),
-                            borderRadius: BorderRadius.circular(0),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Colors.black,
-                              width: 5,
-                            ),
-                            borderRadius: BorderRadius.circular(0),
-                          ),
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Colors.black,
-                              width: 5,
-                            ),
-                            borderRadius: BorderRadius.circular(0),
-                          ),
-                        ),
-                      ),
-                      Divider(
-                        height: 20,
-                        color: Colors.transparent,
-                      ),
-                      Text("Email"),
-                      Divider(
-                        height: 5,
-                        color: Colors.transparent,
-                      ),
-                      TextField(
-                        decoration: InputDecoration(
-                          hintText: 'Enter your email here',
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Colors.black,
-                              width: 5,
-                            ),
-                            borderRadius: BorderRadius.circular(0),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Colors.black,
-                              width: 5,
-                            ),
-                            borderRadius: BorderRadius.circular(0),
-                          ),
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Colors.black,
-                              width: 5,
-                            ),
-                            borderRadius: BorderRadius.circular(0),
-                          ),
-                        ),
-                      ),
-                      Divider(
-                        height: 20,
-                        color: Colors.transparent,
-                      ),
-                      Text("Password"),
-                      Divider(
-                        height: 5,
-                        color: Colors.transparent,
-                      ),
-                      TextField(
-                        decoration: InputDecoration(
-                          hintText: 'Enter your password here',
+                          hintText: '\$',
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Colors.black,
@@ -162,25 +123,26 @@ class _DonationsPageState extends State<DonationsPage> {
                       Container(
                         padding: EdgeInsets.symmetric(vertical: 20),
                         alignment: Alignment.center,
-                        child: Text("SIGN UP",
-                            style: TextStyle(color: Colors.white)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              height: 30,
+                              width: 30,
+                              child: Image.asset(
+                                Images.ringGIF,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Divider(
+                              color: Colors.transparent,
+                            ),
+                            Text("DONATE",
+                                style: TextStyle(color: Colors.white)),
+                          ],
+                        ),
                         color: Colors.black,
                       ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            new MaterialPageRoute(
-                              builder: (context) => LoginPage(),
-                            ),
-                          );
-                        },
-                        child: Container(
-                          padding: EdgeInsets.symmetric(vertical: 20),
-                          alignment: Alignment.center,
-                          child: Text("OR SIGN IN?"),
-                        ),
-                      )
                     ],
                   ),
                 ),
