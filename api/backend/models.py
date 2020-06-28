@@ -16,7 +16,8 @@ class User(models.Model):
 
 
 class Organization(models.Model):
-    user = models.OneToOneField(Admin, on_delete=models.CASCADE, unique=True, blank=False, null=False)
+    user = models.OneToOneField(Admin, on_delete=models.CASCADE, verbose_name='Admin of the Organization', unique=True,
+                                blank=False, null=False)
     org_id = models.AutoField(editable=False, verbose_name='Organization ID', primary_key=True)
     name = models.CharField(max_length=100, verbose_name='Organization Name', blank=False, null=False, unique=True)
     email = models.EmailField()
