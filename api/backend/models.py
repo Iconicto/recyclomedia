@@ -2,6 +2,17 @@ from django.db import models
 from django.contrib.auth.models import User as Admin
 
 
+class Badge(models.Model):
+    badge_id = models.AutoField(editable=False, primary_key=True)
+    name = models.CharField(max_length=100, blank=False, null=False)
+    description = models.TextField(default="")
+    icon = models.ImageField(upload_to='badge_icons/')
+    point_awarded = models.IntegerField(default=0, blank=False, null=False)
+
+    def __str__(self):
+        return f"{self.name}"
+
+
 class User(models.Model):
     user_id = models.AutoField(editable=False, verbose_name='User ID', primary_key=True)
     first_name = models.CharField(max_length=100, blank=False, null=False)
@@ -10,6 +21,14 @@ class User(models.Model):
     password = models.CharField(max_length=100, blank=False, null=False)
     experience_points = models.IntegerField(default=0, blank=False, null=False)
     profile_picture = models.ImageField(upload_to='profile_picture/%Y/%m/%d/')
+    badges = models.ManyToManyField(Badge, blank=True)
+
+    @property
+    def badge_experience_points(self):
+        experience_points = 0
+        for badge in self.badges.all():
+            experience_points += badge.point_awarded
+        return experience_points
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}".strip()

@@ -22,16 +22,28 @@ class UserViewSet(viewsets.ViewSet):
     permission_classes = [AllowAny]
 
     def list(self, request):
+        queryset = User.objects.all()
+        serializer = BasicUserSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+    def retrieve(self, request, pk=None):
         try:
             user = get_user(request)
-            queryset = User.objects.get(user_id=user.user_id)
-            serializer = UserSerializer(queryset, many=False)
+            serializer = UserSerializer(user, many=False)
             return Response(serializer.data)
         except User.DoesNotExist:
             raise AuthenticationFailed("invalid email or password")
 
     def create(self, request):
         serializer = UserSerializer(data=request.data, many=False)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status=201)
+        return JsonResponse(serializer.errors, status=400)
+
+    def partial_update(self, request, pk=None):
+        user = get_user(request)
+        serializer = UserSerializer(user, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
             return JsonResponse(serializer.data, status=201)
@@ -46,6 +58,11 @@ class OrganizationViewSet(viewsets.ModelViewSet):
 class EventViewSet(viewsets.ModelViewSet):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
+
+
+class BadgeViewSet(viewsets.ModelViewSet):
+    queryset = Badge.objects.all()
+    serializer_class = BadgeSerializer
 
 
 class PostViewSet(viewsets.ViewSet):

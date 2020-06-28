@@ -1,17 +1,30 @@
 from rest_framework import serializers
-from .models import User, Organization, Event, Post
+from .models import User, Organization, Event, Post, Badge
+
+
+class BadgeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Badge
+        fields = "__all__"
 
 
 class UserSerializer(serializers.ModelSerializer):
+    badges = BadgeSerializer(many=True, read_only=True)
+
     class Meta:
         model = User
-        fields = ('user_id', 'first_name', 'last_name', 'email', 'password', 'experience_points', 'profile_picture')
+        fields = (
+            'user_id', 'first_name', 'last_name', 'email', 'password', 'experience_points', 'profile_picture', 'badges',
+            'badge_experience_points')
 
 
 class BasicUserSerializer(serializers.ModelSerializer):
+    badges = BadgeSerializer(many=True, read_only=True)
+
     class Meta:
         model = User
-        fields = ('user_id', 'first_name', 'last_name', 'email', 'experience_points')
+        fields = ('user_id', 'first_name', 'last_name', 'email', 'experience_points', 'profile_picture', 'badges',
+                  'badge_experience_points')
 
 
 class OrganizationSerializer(serializers.ModelSerializer):
@@ -34,5 +47,3 @@ class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = ('post_id', 'title', 'banner', 'type', 'link', 'content', 'posted_by', 'created_at', 'updated_at')
-
-
