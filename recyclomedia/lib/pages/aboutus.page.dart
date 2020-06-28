@@ -12,165 +12,126 @@ class AboutUsPage extends StatefulWidget {
 class AboutUsPageState extends State<AboutUsPage> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Expanded(
-          child: Stack(
-            children: [
-              Container(
-                height: double.infinity,
-                width: double.infinity,
-                child: Image.asset(
-                  "lib/assets/images/login.jpg",
-                  fit: BoxFit.fill,
+    return Scaffold(
+      body: Column(
+        children: [
+          Expanded(
+            child: Stack(
+              children: [
+                Container(
+                  height: double.infinity,
+                  width: double.infinity,
+                  child: Image.asset(
+                    "lib/assets/images/login.jpg",
+                    fit: BoxFit.fill,
+                  ),
                 ),
-              ),
-              Positioned(
-                bottom: MediaQuery.of(context).viewPadding.top < 0 ? 65 : 20,
-                left: 25,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "This is",
-                      style: TextStyle(
-                        color: Colors.white,
+                Positioned(
+                  bottom: MediaQuery.of(context).viewPadding.top < 0 ? 65 : 20,
+                  left: 25,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "This is",
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
                       ),
-                    ),
-                    Text(
-                      "About US",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
+                      Text(
+                        "About US",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-        Expanded(
-          flex: MediaQuery.of(context).size.height > 680 ? 1 : 2,
-          child: SingleChildScrollView(
+          Expanded(
+            flex: MediaQuery.of(context).size.height > 680 ? 1 : 2,
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 24),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Divider(
-                    color: Colors.transparent,
-                    height: 15,
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Image.asset('lib/assets/images/level.png'),
-                        Text(
-                          "Level 10",
-                          style: TextStyle(fontSize: 18),
-                        ),
-                      ],
-                    ),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black, width: 5),
-                    ),
-                  ),
-                  Divider(
-                    color: Colors.transparent,
-                    height: 15,
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Image.asset('lib/assets/images/event.png'),
-                        Text(
-                          "10 Event(s)",
-                          style: TextStyle(fontSize: 18),
-                        ),
-                      ],
-                    ),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black, width: 5),
-                    ),
-                  ),
-                  Divider(
-                    color: Colors.transparent,
-                    height: 15,
-                  ),
-                  Text(
-                    "Badges",
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                  ),
-                  Divider(
-                    color: Colors.transparent,
-                    height: 10,
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Image.asset('lib/assets/images/beginner.png'),
-                        Expanded(
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.end,
+                  Column(
+                    children: [
+                      Divider(
+                        color: Colors.transparent,
+                        height: 25,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (ctx) => AboutUsPage(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 10),
+                          child: Column(
                             children: [
-                              Text(
-                                "RECYLO-STARTER",
-                                style: TextStyle(fontSize: 19),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Icon(Icons.question_answer),
+                                  Text(
+                                    "ABOUT US",
+                                    style: TextStyle(fontSize: 20),
+                                  ),
+                                ],
                               ),
+                              Divider(
+                                color: Colors.transparent,
+                                height: 15,
+                              ),
+                              Container(
+                                child: Text(
+                                    "Team of 5, named Iconicto. Undergraduates reading a Computer Science degree.",
+                                    textAlign: TextAlign.justify,
+                                    style: TextStyle(fontSize: 17)),
+                              )
                             ],
                           ),
-                        ),
-                      ],
-                    ),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black, width: 5),
-                    ),
-                  ),
-                  Divider(
-                    color: Colors.transparent,
-                    height: 15,
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Image.asset('lib/assets/images/earthlover.png'),
-                        Expanded(
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Text(
-                                "EARTH LOVER",
-                                style: TextStyle(fontSize: 19),
-                              ),
-                            ],
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black, width: 5),
                           ),
                         ),
-                      ],
-                    ),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black, width: 5),
-                    ),
+                      ),
+                      Divider(
+                        color: Colors.transparent,
+                        height: 15,
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Text(
+                        "All Rights Reserved. \nRecylcomedia 2020.",
+                        textAlign: TextAlign.center,
+                      ),
+                      Divider(
+                        color: Colors.transparent,
+                        height: 25,
+                      ),
+                    ],
                   )
                 ],
               ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
