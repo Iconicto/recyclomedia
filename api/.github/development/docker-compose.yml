@@ -1,15 +1,15 @@
 version: '3'
 
 services:
-  recyclomedia_db:
-    image: postgres
-    container_name: recyclomedia-Postgres-Development
-    environment:
-      POSTGRES_USER: ${DATABASE_USERNAME}
-      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
-      POSTGRES_DB: ${DATABASE_NAME}
-    volumes:
-      - postgres-recyclomedia:/var/lib/postgresql/data
+#  recyclomedia_db:
+#    image: postgres
+#    container_name: recyclomedia-Postgres-Development
+#    environment:
+#      POSTGRES_USER: ${DATABASE_USERNAME}
+#      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+#      POSTGRES_DB: ${DATABASE_NAME}
+#    volumes:
+#      - postgres-recyclomedia:/var/lib/postgresql/data
   recyclomedia_web:
     container_name: recyclomedia-Django-Development
     restart: unless-stopped
@@ -32,8 +32,8 @@ services:
       - ../../:/app
     ports:
       - "8000:8000"
-    depends_on:
-      - recyclomedia_db
-volumes:
-  postgres-recyclomedia:
-    driver: local
+#    depends_on:
+#      - recyclomedia_db
+#volumes:
+#  postgres-recyclomedia:
+#    driver: local

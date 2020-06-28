@@ -10,4 +10,4 @@ python manage.py migrate --noinput
 
 # Start server
 echo "Starting gunicorn server"
-gunicorn --bind :8000 --workers 3 MacbethEnergy.wsgi:application
+gunicorn --bind :8000 --workers 3 recyclomedia.wsgi:application

@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'supersecret')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DJANGO_DEBUG', False)
@@ -80,8 +80,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.{}'.format(
             os.getenv('DATABASE_ENGINE', 'sqlite3')
         ),
-        'NAME': os.getenv('DATABASE_NAME', 'postgres'),
-        'USER': os.getenv('DATABASE_USERNAME', 'postgres'),
+        'NAME': os.getenv('DATABASE_NAME', 'db.sqlite3'),
+        'USER': os.getenv('DATABASE_USERNAME', 'admin'),
         'PASSWORD': os.getenv('DATABASE_PASSWORD', 'password'),
         'HOST': os.getenv('DATABASE_HOST', '127.0.0.1'),
         'PORT': os.getenv('DATABASE_PORT', 5432),
@@ -165,6 +165,7 @@ REST_FRAMEWORK = {
 }
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 if os.getenv('S3_ACCESS_KEY_ID'):
     AWS_DEFAULT_ACL = os.getenv('AWS_DEFAULT_ACL').strip()
@@ -189,4 +190,5 @@ if os.getenv('S3_ACCESS_KEY_ID'):
 
 
 else:
-    STATIC_URL = os.getenv("STATIC_URL", "/static/")
+    STATIC_URL = "/static/"
+    MEDIA_URL = os.path.join(BASE_DIR, "/media/")

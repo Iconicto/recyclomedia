@@ -6,6 +6,10 @@ import sys
 
 def main():
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'recyclomedia.settings')
+    if not os.path.isdir('recyclomedia/static'):
+        os.mkdir('recyclomedia/static')
+    if not os.path.isdir('media'):
+        os.mkdir('media')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

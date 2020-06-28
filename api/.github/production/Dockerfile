@@ -1,9 +1,10 @@
 FROM python:alpine
 
-ADD requirements.txt /app/requirements.txt
+ADD api/requirements.txt /app/requirements.txt
 
+RUN apk add --no-cache jpeg-dev zlib-dev
 RUN set -ex \
-    && apk add --no-cache --virtual .build-deps postgresql-dev build-base libffi-dev \
+    && apk add --no-cache --virtual .build-deps postgresql-dev build-base libffi-dev  \
     && python -m venv /env \
     && /env/bin/pip install --upgrade pip \
     && /env/bin/pip install --no-cache-dir -r /app/requirements.txt \
@@ -15,9 +16,8 @@ RUN set -ex \
     && apk add --virtual rundeps $runDeps \
     && apk del .build-deps
 
-COPY . /app
+COPY api/. /app
 WORKDIR /app
-CMD ["mkdir", "-p", "MacbethEnergy/static"]
 
 ENV VIRTUAL_ENV /env
 ENV PATH /env/bin:$PATH

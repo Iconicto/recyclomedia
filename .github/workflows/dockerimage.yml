@@ -1,0 +1,41 @@
+name: Backend CI/CD Pipeline
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Install doctl
+        uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+      - name: Install kubectl
+        run: |
+          curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+          chmod +x ./kubectl
+          sudo mv ./kubectl /usr/local/bin/kubectl
+      - name: Configure kubectl and doctl
+        run: |
+          doctl registry login
+          doctl k8s cluster kubeconfig save ${{secrets.DIGITALOCEAN_CLUSTER}}
+      - name: Build Image
+        run: |
+          docker build -f api/.github/production/Dockerfile -t $IMAGE_NAME .
+          docker tag $IMAGE_NAME $IMAGE_NAME:commit-${GITHUB_SHA:0:8}
+          docker tag $IMAGE_NAME $IMAGE_NAME:production
+          docker tag $IMAGE_NAME $IMAGE_NAME:latest
+        env:
+          IMAGE_NAME: registry.digitalocean.com/iconicto/recyclomedia
+      - name: Push to Docker registry
+        run: docker push $IMAGE_NAME
+        env:
+          IMAGE_NAME: registry.digitalocean.com/iconicto/recyclomedia
+      - name: Deploy to Cluster
+        run: kubectl set image deployment recyclomedia-deployment recyclomedia=${IMAGE_NAME}:commit-${GITHUB_SHA:0:8}
+        env:
+          IMAGE_NAME: registry.digitalocean.com/iconicto/recyclomedia
