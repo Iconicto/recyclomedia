@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:recyclomedia/assets/fonts.dart';
-import 'package:recyclomedia/pages/home.page.dart';
+import 'package:recyclomedia/fonts.dart';
+import 'package:recyclomedia/pages/home.dart';
 import 'package:recyclomedia/pages/login.page.dart';
 
 void main() {
