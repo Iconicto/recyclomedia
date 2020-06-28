@@ -40,4 +40,5 @@ flutter:
         - asset: lib/assets/fonts/DisposableDroidBB_bld.ttf
   assets:
     - lib/assets/images/login.jpg
+    - lib/assets/images/signup.png
 
