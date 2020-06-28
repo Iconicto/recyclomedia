@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recyclomedia/pages/home.page.dart';
+import 'package:recyclomedia/pages/eventsPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomePage(),
+      home: eventsPage(),
     );
   }
 }
