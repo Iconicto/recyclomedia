@@ -16,7 +16,7 @@ class _HomeState extends State<Home> {
   int _currentNavIndex = 0;
   final List<Widget> _children = [
     DashboardPage(Colors.blue),
-    EventsPage(Colors.tealAccent),
+    EventsPage(),
     ProfilePage(Colors.deepOrange),
     SettingsPage(Colors.green)
   ];
