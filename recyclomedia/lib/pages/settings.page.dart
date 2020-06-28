@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recyclomedia/pages/aboutus.page.dart';
 
 class SettingsPage extends StatefulWidget {
   SettingsPage();
@@ -65,21 +66,31 @@ class SettingsPageState extends State<SettingsPage> {
                       color: Colors.transparent,
                       height: 25,
                     ),
-                    Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Image.asset('lib/assets/images/aboutus.png'),
-                          Text(
-                            "ABOUT US",
-                            style: TextStyle(fontSize: 18),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (ctx) => AboutUsPage(),
                           ),
-                        ],
-                      ),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black, width: 5),
+                        );
+                      },
+                      child: Container(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Image.asset('lib/assets/images/aboutus.png'),
+                            Text(
+                              "ABOUT US",
+                              style: TextStyle(fontSize: 18),
+                            ),
+                          ],
+                        ),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black, width: 5),
+                        ),
                       ),
                     ),
                     Divider(
