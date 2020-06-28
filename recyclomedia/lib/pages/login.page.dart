@@ -20,14 +20,26 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  top: MediaQuery.of(context).viewPadding.top < 0 ? 65 : 40,
+                  top: MediaQuery.of(context).viewPadding.top < 0 ? 40 : 65,
                   left: 25,
                   child: Text(
                     "Sign In",
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 40,
-                        fontWeight: FontWeight.bold),
+                        fontWeight: FontWeight.bold,
+                      shadows: <Shadow>[
+                        Shadow(
+                          offset: Offset(0, 0),
+                          blurRadius: 70.0,
+                          color: Colors.black,
+                        ),
+                        Shadow(
+                          offset: Offset(0, 0),
+                          blurRadius: 60.0,
+                          color: Colors.black,
+                        ),
+                      ],),
                   ),
                 ),
               ],
@@ -89,6 +101,7 @@ class LoginPage extends StatelessWidget {
                         color: Colors.transparent,
                       ),
                       TextField(
+                        obscureText: true,
                         decoration: InputDecoration(
                           hintText: 'Enter your password here',
                           enabledBorder: OutlineInputBorder(

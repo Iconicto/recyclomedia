@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:recyclomedia/images.dart';
 import 'package:recyclomedia/pages/login.page.dart';
 import 'package:recyclomedia/pages/signup.page.dart';
 
 class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
+    final vw = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: Column(
         children: [
@@ -15,19 +19,30 @@ class LandingPage extends StatelessWidget {
                   height: double.infinity,
                   width: double.infinity,
                   child: Image.asset(
-                    "lib/assets/images/login.jpg",
-                    fit: BoxFit.fill,
+                    Images.palmsGIF,
+                    fit: BoxFit.cover,
                   ),
                 ),
-                Positioned(
-                  top: MediaQuery.of(context).viewPadding.top < 0 ? 65 : 40,
-                  left: 25,
+                Center(
                   child: Text(
                     "RECYCLOMEDIA",
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold),
+                        fontSize: vw * 0.12,
+                        shadows: <Shadow>[
+                          Shadow(
+                            offset: Offset(0, 0),
+                            blurRadius: 70.0,
+                            color: Colors.black,
+                          ),
+                          Shadow(
+                            offset: Offset(0, 0),
+                            blurRadius: 60.0,
+                            color: Colors.black,
+                          ),
+                        ],
+                      letterSpacing: -5
+                        ),
                   ),
                 ),
               ],

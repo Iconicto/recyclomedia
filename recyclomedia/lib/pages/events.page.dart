@@ -21,6 +21,8 @@ class _EventsPageState extends State<EventsPage> {
   @override
   Widget build(BuildContext context) {
 
+    final vw = MediaQuery.of(context).size.width;
+
     final pageHeader = new Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

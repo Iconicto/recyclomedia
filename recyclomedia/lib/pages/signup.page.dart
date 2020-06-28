@@ -16,7 +16,7 @@ class SignUpPage extends StatelessWidget {
                   color: Colors.red,
                   child: Image.asset(
                     "lib/assets/images/signup.png",
-                    fit: BoxFit.fill,
+                    fit: BoxFit.cover,
                   ),
                 ),
                 Positioned(
@@ -25,9 +25,22 @@ class SignUpPage extends StatelessWidget {
                   child: Text(
                     "Sign Up",
                     style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold),
+                      color: Colors.white,
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                      shadows: <Shadow>[
+                        Shadow(
+                          offset: Offset(0, 0),
+                          blurRadius: 70.0,
+                          color: Colors.black,
+                        ),
+                        Shadow(
+                          offset: Offset(0, 0),
+                          blurRadius: 60.0,
+                          color: Colors.black,
+                        ),
+                      ],
+                    ),
                   ),
                 )
               ],
@@ -124,6 +137,7 @@ class SignUpPage extends StatelessWidget {
                         color: Colors.transparent,
                       ),
                       TextField(
+                        obscureText: true,
                         decoration: InputDecoration(
                           hintText: 'Enter your password here',
                           enabledBorder: OutlineInputBorder(
