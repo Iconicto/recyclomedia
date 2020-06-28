@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recyclomedia/images.dart';
 import 'package:recyclomedia/layout.constants.dart';
 import 'package:recyclomedia/widgets/eventsCard.dart';
 import 'package:recyclomedia/widgets/userCard.widget.dart';
@@ -38,11 +39,11 @@ class DashboardPageState extends State<DashboardPage> {
             ),
           ),
           UserCard(
-            userName: "Akassharjun Shanmugarajah",
-            imgurl: "assets/eventsbg.png",
-            label: "Green-o-lantern",
-            level: 10,
-          )
+              userName: "Akassharjun Shanmugarajah",
+              imgurl: "lib/assets/images/eventsbg.png",
+              label: "Green-o-lantern",
+              level: 10,
+          ),
         ],
       ),
     );
@@ -53,19 +54,15 @@ class DashboardPageState extends State<DashboardPage> {
             scrollDirection: Axis.vertical,
             physics: ScrollPhysics(),
             children: [
-          eventsCard("Beach Cleanup 2020", "assets/eventbg1.jpg"),
-          eventsCard("Akash's Gay Marriage", "assets/eventbg2.jpg"),
-          eventsCard("Akash's Gay Marriage", "assets/eventbg2.jpg"),
-          eventsCard("Akash's Gay Marriage", "assets/eventbg2.jpg"),
-          eventsCard("Akash's Gay Marriage", "assets/eventbg2.jpg"),
-          eventsCard("Akash's Gay Marriage", "assets/eventbg2.jpg"),
-          eventsCard("Akash's Gay Marriage", "assets/eventbg2.jpg"),
-          eventsCard("Akash's Gay Marriage", "assets/eventbg2.jpg"),
-          eventsCard("Akash's Gay Marriage", "assets/eventbg2.jpg"),
-          eventsCard("Akash's Gay Marriage", "assets/eventbg2.jpg"),
-          eventsCard("Akash's Gay Marriage", "assets/eventbg2.jpg"),
-          eventsCard("Akash's Gay Marriage", "assets/eventbg2.jpg"),
-          eventsCard("Akash's Gay Marriage", "assets/eventbg2.jpg"),
+          eventsCard("Beach Cleanup 2020", Images.mountain),
+          eventsCard("Akash's Gay Marriage", Images.forest),
+          eventsCard("Akash's Gay Marriage", Images.sunset),
+          eventsCard("Beach Cleanup 2020", Images.mountain),
+          eventsCard("Akash's Gay Marriage", Images.forest),
+          eventsCard("Akash's Gay Marriage", Images.sunset),
+          eventsCard("Beach Cleanup 2020", Images.mountain),
+          eventsCard("Akash's Gay Marriage", Images.forest),
+          eventsCard("Akash's Gay Marriage", Images.sunset),
         ]));
 
     final eventsContainer = Container(

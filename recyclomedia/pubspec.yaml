@@ -41,12 +41,9 @@ flutter:
   assets:
     - lib/assets/images/login.jpg
     - lib/assets/images/signup.png
-
-  # To add assets to your application, add an assets section, like this:
-  assets:
-    - assets/eventbg1.jpg
-    - assets/eventbg2.jpg
-    - assets/eventsbg.png
+    - lib/assets/images/eventbg1.jpg
+    - lib/assets/images/eventbg2.jpg
+    - lib/assets/images/eventsbg.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

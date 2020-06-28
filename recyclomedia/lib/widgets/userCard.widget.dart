@@ -31,14 +31,12 @@ class UserCard extends StatelessWidget {
           children: [
             Align(
               alignment: Alignment.centerLeft,
-              child: Flexible(
-                flex: 1,
+
                 child: Text(userName,
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: FontSize.userCardHeading,
                         fontFamily: Fonts.SilkScreen)),
-              ),
             ),
             Align(
               alignment: Alignment.centerLeft,

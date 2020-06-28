@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recyclomedia/pages/home.dart';
 import 'package:recyclomedia/pages/signup.page.dart';
 
 class LoginPage extends StatelessWidget {
@@ -127,12 +128,22 @@ class LoginPage extends StatelessWidget {
                         height: 30,
                         color: Colors.transparent,
                       ),
-                      Container(
-                        padding: EdgeInsets.symmetric(vertical: 20),
-                        alignment: Alignment.center,
-                        child: Text("SIGN IN",
-                            style: TextStyle(color: Colors.white)),
-                        color: Colors.black,
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            new MaterialPageRoute(
+                              builder: (context) => Home(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          padding: EdgeInsets.symmetric(vertical: 20),
+                          alignment: Alignment.center,
+                          child: Text("SIGN IN",
+                              style: TextStyle(color: Colors.white)),
+                          color: Colors.black,
+                        ),
                       ),
                       GestureDetector(
                         onTap: () {
