@@ -121,14 +121,14 @@ class DashboardPageState extends State<DashboardPage> {
     );
 
     return new Scaffold(
-        body: SafeArea(
-      child: Column(
-        children: [
-          Expanded(
-            flex: 3,
-            child: Stack(
-              children: [
-                Container(
+      body: SafeArea(
+        child: Column(
+          children: [
+            Expanded(
+              flex: 5,
+              child: Stack(
+                children: [
+                  Container(
                     height: double.infinity,
                     width: double.infinity,
                     child: header),
