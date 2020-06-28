@@ -16,14 +16,62 @@ class _eventsPageState extends State<eventsPage> {
   @override
   Widget build(BuildContext context) {
 
+    //Viewport
+    final vh = MediaQuery.of(context).size.height;
+    final vw = MediaQuery.of(context).size.width;
+
+    final pageHeader = new Container(
+      padding: EdgeInsets.only(left: 0.05*vw, top: 0.06*vh),
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("assets/eventsbg.png"),
+          fit: BoxFit.cover,
+        ),
+      ),
+      height: 0.25*vh,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Events",
+            style: TextStyle(
+              fontFamily: 'SilkScreen',
+              fontWeight: FontWeight.w700,
+              color: Colors.white
+            ),
+            textScaleFactor: 2,
+          ),
+          Text(
+            "Discover the events near you...",
+            style: TextStyle(
+              fontFamily: 'SilkScreen',
+              //fontWeight: FontWeight.w700,
+              color: Colors.white
+            ),
+            textScaleFactor: 1,
+          )
+        ]
+      )
+    );
+
+    final cardContainer = Container(
+      margin: EdgeInsets.only(left: 18.0, right: 18.0),
+      child: ListView(
+      shrinkWrap: true,
+      children: [
+        eventsCard("Beach Cleanup 2020", "assets/eventbg1.jpg"),
+        eventsCard("Akash's Gay Marriage", "assets/eventbg2.jpg")
+      ]
+    )
+    );
+
     return new Scaffold(
       body: SafeArea(
         child: Container(
-            margin: EdgeInsets.only(left: 18.0, right: 18.0),
             child: ListView(
               children: <Widget>[
-                eventsCard("Beach Cleanup 2020", "assets/eventbg1.jpg"),
-                eventsCard("Akash's Gay Marriage", "assets/eventbg2.jpg")
+                pageHeader,
+                cardContainer
               ],
             )),
       ),
