@@ -2,6 +2,7 @@ import 'package:recyclomedia/api/Events/event.provider.dart';
 import 'package:flutter/material.dart';
 import 'package:recyclomedia/models/event.model.dart';
 import '../widgets/eventsCard.dart';
+import 'login.page.dart';
 
 class EventsPage extends StatefulWidget {
   @override
@@ -18,20 +19,11 @@ class _EventsPageState extends State<EventsPage> {
 
   @override
   Widget build(BuildContext context) {
-    //Viewport
-    final vh = MediaQuery.of(context).size.height;
-    final vw = MediaQuery.of(context).size.width;
 
     final pageHeader = new Container(
-        padding: EdgeInsets.only(left: 0.05 * vw, top: 0.06 * vh),
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/eventsbg.png"),
-            fit: BoxFit.cover,
-          ),
-        ),
-        height: 0.25 * vh,
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
           Text(
             "Events",
             style: TextStyle(
