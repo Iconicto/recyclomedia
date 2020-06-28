@@ -44,6 +44,7 @@ flutter:
   assets:
     - assets/eventbg1.jpg
     - assets/eventbg2.jpg
+    - assets/eventsbg.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

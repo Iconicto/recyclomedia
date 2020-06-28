@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 //Boarding Cards
 class eventsCard extends StatelessWidget {
   final String eventName;
+  final String imgurl;
 
-  const eventsCard(this.eventName);
+  const eventsCard(this.eventName, this.imgurl);
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +20,21 @@ class eventsCard extends StatelessWidget {
       width: vw,
       margin: EdgeInsets.only(top: 10.0),
       decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/eventbg1.jpg"),
-            fit: BoxFit.cover,
-          ),
+        image: DecorationImage(
+          image: AssetImage(imgurl),
+          fit: BoxFit.cover,
         ),
+        border: Border.all(color: Colors.black, width: 5)
+      ),
+      child: Center(
+        child: Text(
+          eventName,
+          style: TextStyle(
+            fontFamily: 'SilkScreen',
+            color: Colors.white
+            )
+          )
+      )
     );
   }
 }
