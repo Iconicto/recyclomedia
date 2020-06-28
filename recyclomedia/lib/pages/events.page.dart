@@ -1,7 +1,6 @@
+import 'package:recyclomedia/api/Events/event.provider.dart';
 import 'package:flutter/material.dart';
-import 'package:recyclomedia/fonts.dart';
-import 'package:recyclomedia/images.dart';
-import 'package:recyclomedia/layout.constants.dart';
+import 'package:recyclomedia/models/event.model.dart';
 import '../widgets/eventsCard.dart';
 
 class EventsPage extends StatefulWidget {
@@ -10,6 +9,7 @@ class EventsPage extends StatefulWidget {
 }
 
 class _EventsPageState extends State<EventsPage> {
+  EventProvider _eventProvider = EventProvider();
 
   @override
   void initState() {
@@ -18,65 +18,102 @@ class _EventsPageState extends State<EventsPage> {
 
   @override
   Widget build(BuildContext context) {
-
     //Viewport
     final vh = MediaQuery.of(context).size.height;
     final vw = MediaQuery.of(context).size.width;
 
     final pageHeader = new Container(
-      padding: EdgeInsets.only(left: 0.05*vw, top: 0.06*vh),
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(Images.sunset),
-          fit: BoxFit.cover,
+        padding: EdgeInsets.only(left: 0.05 * vw, top: 0.06 * vh),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/eventsbg.png"),
+            fit: BoxFit.cover,
+          ),
         ),
-      ),
-      height: 0.25*vh,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        height: 0.25 * vh,
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(
             "Events",
             style: TextStyle(
-              fontFamily: Fonts.SilkScreen,
-              fontWeight: FontWeight.w700,
-              color: Colors.white
-            ),
+                fontFamily: 'SilkScreen',
+                fontWeight: FontWeight.w700,
+                color: Colors.white),
             textScaleFactor: 2,
           ),
           Text(
             "Discover the events near you...",
             style: TextStyle(
-              fontFamily: Fonts.SilkScreen,
-              //fontWeight: FontWeight.w700,
-              color: Colors.white
-            ),
+                fontFamily: 'SilkScreen',
+                //fontWeight: FontWeight.w700,
+                color: Colors.white),
             textScaleFactor: 1,
           )
-        ]
-      )
-    );
+        ]));
 
     final cardContainer = Container(
-      margin: EdgeInsets.only(left: Layout.marginTrailingLeading, right: Layout.marginTrailingLeading),
-      child: ListView(
-      shrinkWrap: true,
-      children: [
-        eventsCard("Beach Cleanup 2020", Images.mountain),
-        eventsCard("Akash's Gay Marriage", Images.forest)
-      ]
-    )
+      margin: EdgeInsets.only(left: 18.0, right: 18.0),
+      child: FutureBuilder(
+        future: _eventProvider.getEventData,
+        builder: (BuildContext context, AsyncSnapshot<List<Event>> snapshot) {
+          switch (snapshot.connectionState) {
+            case ConnectionState.none:
+              return Container(
+                child: Center(child: CircularProgressIndicator()),
+              );
+              break;
+
+            case ConnectionState.waiting:
+              return Container(
+                child: Center(child: CircularProgressIndicator()),
+              );
+              break;
+
+            case ConnectionState.active:
+              return Container(
+                child: Center(child: CircularProgressIndicator()),
+              );
+              break;
+
+            case ConnectionState.done:
+              if (snapshot.hasError) {
+                return Container(
+                  child: Text("Something went wrong!"),
+                );
+              } else {
+                return BuildList(eventData: snapshot.data);
+              }
+              break;
+          }
+          return Container();
+        },
+      ),
     );
 
     return new Scaffold(
       body: SafeArea(
         child: Container(
             child: ListView(
-              children: <Widget>[
-                pageHeader,
-                cardContainer
-              ],
-            )),
+          children: <Widget>[pageHeader, cardContainer],
+        )),
+      ),
+    );
+  }
+}
+
+class BuildList extends StatelessWidget {
+  const BuildList({Key key, this.eventData}) : super(key: key);
+
+  final List<Event> eventData;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: ListView.builder(
+        shrinkWrap: true,
+        itemCount: eventData.length,
+        itemBuilder: (context, index) {
+          return EventsCard(eventData[index].name, eventData[index].banner);
+        },
       ),
     );
   }
