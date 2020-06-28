@@ -5,7 +5,7 @@ from .models import User, Organization, Event, Post
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = "__all__"
+        fields = ('user_id', 'first_name', 'last_name', 'email', 'password', 'experience_points', 'profile_picture')
 
 
 class BasicUserSerializer(serializers.ModelSerializer):
