@@ -6,7 +6,7 @@ import 'package:recyclomedia/pages/settings.page.dart';
 import 'dashboard.page.dart';
 
 class Home extends StatefulWidget {
-  _HomeState home = _HomeState();
+  final _HomeState home = _HomeState();
   @override
   State<StatefulWidget> createState() {
     return _HomeState();
@@ -15,13 +15,6 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _currentNavIndex = 0;
-
-  final List<Widget> _children = [
-    DashboardPage(Colors.blue),
-    EventsPage(),
-    ProfilePage(),
-    SettingsPage()
-  ];
 
   PageController _pageController;
 
@@ -62,10 +55,10 @@ class _HomeState extends State<Home> {
           onTap: onTabTapped,
           currentIndex: _currentNavIndex,
           items: [
-            NavigationItem(Icons.home, "H", "ome"),
-            NavigationItem(Icons.flag, "E", "vents"),
-            NavigationItem(Icons.person, "P", "rofile"),
-            NavigationItem(Icons.settings, "S", "ettings"),
+            navigationItem(Icons.home, "H", "ome"),
+            navigationItem(Icons.flag, "E", "vents"),
+            navigationItem(Icons.person, "P", "rofile"),
+            navigationItem(Icons.settings, "S", "ettings"),
           ],
         ),
       ),
@@ -81,7 +74,7 @@ class _HomeState extends State<Home> {
     });
   }
 
-  BottomNavigationBarItem NavigationItem(
+  BottomNavigationBarItem navigationItem(
       IconData icon, String underlinedNavTitleText, String navTitleText) {
     return BottomNavigationBarItem(
       icon: Icon(icon),

@@ -57,6 +57,7 @@ flutter:
     - lib/assets/images/eventbg1.jpg
     - lib/assets/images/eventbg2.jpg
     - lib/assets/images/eventsbg.png
+    - lib/assets/images/alertBox.png
     - lib/assets/images/palms.gif
     - assets/eventbg1.jpg
     - assets/eventbg2.jpg

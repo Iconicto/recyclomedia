@@ -5,11 +5,9 @@ import 'package:recyclomedia/widgets/eventsCard.dart';
 import 'package:recyclomedia/widgets/userCard.widget.dart';
 
 import '../fonts.dart';
-import 'login.page.dart';
 
 class DashboardPage extends StatefulWidget {
   final Color color;
-  double screenSize;
 
   DashboardPage(this.color);
 

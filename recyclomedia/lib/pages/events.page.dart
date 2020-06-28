@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:recyclomedia/models/event.model.dart';
 import 'package:recyclomedia/pages/eventDetails.page.dart';
 import '../widgets/eventsCard.dart';
-import 'login.page.dart';
 
 class EventsPage extends StatefulWidget {
   @override

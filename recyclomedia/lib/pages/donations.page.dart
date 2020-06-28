@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:recyclomedia/fonts.dart';
 import 'package:recyclomedia/images.dart';
-
-import 'login.page.dart';
+import 'package:recyclomedia/widgets/DialogBox.dart';
 
 class DonationsPage extends StatefulWidget {
   @override
@@ -120,28 +118,33 @@ class _DonationsPageState extends State<DonationsPage> {
                         height: 30,
                         color: Colors.transparent,
                       ),
-                      Container(
-                        padding: EdgeInsets.symmetric(vertical: 20),
-                        alignment: Alignment.center,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              height: 30,
-                              width: 30,
-                              child: Image.asset(
-                                Images.ringGIF,
-                                fit: BoxFit.cover,
+                      GestureDetector(
+                        onTap: (){
+                          showDialog(context: context, builder: (BuildContext context) => DialogBoxes());
+                        },
+                        child: Container(
+                          padding: EdgeInsets.symmetric(vertical: 20),
+                          alignment: Alignment.center,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                height: 30,
+                                width: 30,
+                                child: Image.asset(
+                                  Images.ringGIF,
+                                  fit: BoxFit.cover,
+                                ),
                               ),
-                            ),
-                            Divider(
-                              color: Colors.transparent,
-                            ),
-                            Text("DONATE",
-                                style: TextStyle(color: Colors.white)),
-                          ],
+                              Divider(
+                                color: Colors.transparent,
+                              ),
+                              Text("DONATE",
+                                  style: TextStyle(color: Colors.white)),
+                            ],
+                          ),
+                          color: Colors.black,
                         ),
-                        color: Colors.black,
                       ),
                     ],
                   ),
