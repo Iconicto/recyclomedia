@@ -65,7 +65,17 @@ class _EventsPageState extends State<EventsPage> {
 
             case ConnectionState.waiting:
               return Container(
-                child: Center(child: CircularProgressIndicator()),
+                child: Center(
+                    child: Container(
+                  height: 150.0,
+                  width: 150.0,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage("lib/assets/images/loading.gif"),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                )),
               );
               break;
 
@@ -78,7 +88,17 @@ class _EventsPageState extends State<EventsPage> {
             case ConnectionState.done:
               if (snapshot.hasError) {
                 return Container(
-                  child: Text("Something went wrong!"),
+                  child: Center(
+                      child: Container(
+                    height: 150.0,
+                    width: vw,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage("lib/assets/images/error.gif"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  )),
                 );
               } else {
                 return BuildList(eventData: snapshot.data);

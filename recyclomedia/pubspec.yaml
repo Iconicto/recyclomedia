@@ -50,6 +50,11 @@ flutter:
     - lib/assets/images/beginner.png
     - lib/assets/images/aboutus.png
     - lib/assets/images/donate.png
+    - lib/assets/images/clock.png
+    - lib/assets/images/calendar.png
+    - lib/assets/images/loading.gif
+    - lib/assets/images/email.png
+    - lib/assets/images/error.gif
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

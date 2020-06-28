@@ -75,10 +75,15 @@ class _EventDetailsState extends State<EventDetails> {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
-                      Icon(
-                        Icons.calendar_today,
-                        color: Color(0xFFE93B55),
-                        size: 30.0,
+                      Container(
+                        height: 30.0,
+                        width: 30.0,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage("lib/assets/images/calendar.png"),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                       ),
                       SizedBox(
                         height: 5.0,
@@ -97,10 +102,15 @@ class _EventDetailsState extends State<EventDetails> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    Icon(
-                      Icons.query_builder,
-                      color: Color(0xFFE93B55),
-                      size: 30.0,
+                    Container(
+                      height: 30.0,
+                      width: 30.0,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage("lib/assets/images/clock.png"),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
                     SizedBox(
                       height: 5.0,
@@ -167,10 +177,15 @@ class _EventDetailsState extends State<EventDetails> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Icon(
-                  Icons.email,
-                  color: Color(0xFFE93B55),
-                  size: 30.0,
+                Container(
+                  height: 30.0,
+                  width: 30.0,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage("lib/assets/images/email.png"),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
                 SizedBox(width: 10.0),
                 Text(
