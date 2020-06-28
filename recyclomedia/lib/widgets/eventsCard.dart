@@ -15,13 +15,13 @@ class EventsCard extends StatelessWidget {
     final vw = MediaQuery.of(context).size.width;
 
     return new Container(
-      height: 84.0,
-      width: vw,
-      margin: EdgeInsets.only(top: 10.0),
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(imgurl),
-          fit: BoxFit.cover,
+        height: 84.0,
+        width: vw,
+        margin: EdgeInsets.only(top: 10.0),
+        decoration: BoxDecoration(
+            image: DecorationImage(
+              image: NetworkImage(imgurl),
+              fit: BoxFit.cover,
         ),
         border: Border.all(color: Colors.black, width: 5)
       ),

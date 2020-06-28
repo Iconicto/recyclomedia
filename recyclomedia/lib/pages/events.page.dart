@@ -1,6 +1,7 @@
 import 'package:recyclomedia/api/Events/event.provider.dart';
 import 'package:flutter/material.dart';
 import 'package:recyclomedia/models/event.model.dart';
+import 'package:recyclomedia/pages/eventDetails.page.dart';
 import '../widgets/eventsCard.dart';
 import 'login.page.dart';
 
@@ -56,7 +57,17 @@ class _EventsPageState extends State<EventsPage> {
 
             case ConnectionState.waiting:
               return Container(
-                child: Center(child: CircularProgressIndicator()),
+                child: Center(
+                    child: Container(
+                  height: 150.0,
+                  width: 150.0,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage("lib/assets/images/loading.gif"),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                )),
               );
               break;
 
@@ -69,7 +80,17 @@ class _EventsPageState extends State<EventsPage> {
             case ConnectionState.done:
               if (snapshot.hasError) {
                 return Container(
-                  child: Text("Something went wrong!"),
+                  child: Center(
+                      child: Container(
+                    height: 150.0,
+                    width: vw,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage("lib/assets/images/error.gif"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  )),
                 );
               } else {
                 return BuildList(eventData: snapshot.data);
@@ -99,19 +120,32 @@ class BuildList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-
-        Container(
-          child: ListView.builder(
-            shrinkWrap: true,
-            itemCount: eventData.length,
-            itemBuilder: (context, index) {
-              return EventsCard(eventData[index].name,"from 830 am onwards", eventData[index].banner);
+    return Container(
+      child: ListView.builder(
+        shrinkWrap: true,
+        itemCount: eventData.length,
+        itemBuilder: (context, index) {
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => EventDetails(
+                        eventName: eventData[index].name,
+                        eventBanner: eventData[index].banner,
+                        eventOrg: eventData[index].managedBy.name,
+                        eventDate:
+                            eventData[index].time.toString().split("T")[0],
+                        eventTime: eventData[index].duration,
+                        eventDes: eventData[index].content,
+                        eventOrgBanner: eventData[index].managedBy.orgPicture,
+                        eventOrgEmail: eventData[index].managedBy.email),
+                  ));
             },
-          ),
-        ),
-      ],
+            child: EventsCard(eventData[index].name, "",eventData[index].banner),
+          );
+        },
+      ),
     );
   }
 
