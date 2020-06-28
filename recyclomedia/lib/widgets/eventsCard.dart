@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 
-
 //Boarding Cards
-class eventsCard extends StatelessWidget {
+class EventsCard extends StatelessWidget {
   final String eventName;
   final String imgurl;
   final String details;
 
-  const eventsCard(this.eventName, this.details , this.imgurl);
+  const EventsCard(this.eventName,this.details, this.imgurl);
 
   @override
   Widget build(BuildContext context) {
-
     //Viewport
     final vh = MediaQuery.of(context).size.height;
     final vw = MediaQuery.of(context).size.width;
@@ -79,4 +77,3 @@ class eventsCard extends StatelessWidget {
     );
   }
 }
-

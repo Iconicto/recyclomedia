@@ -1,7 +1,6 @@
+import 'package:recyclomedia/api/Events/event.provider.dart';
 import 'package:flutter/material.dart';
-import 'package:recyclomedia/fonts.dart';
-import 'package:recyclomedia/images.dart';
-import 'package:recyclomedia/layout.constants.dart';
+import 'package:recyclomedia/models/event.model.dart';
 import '../widgets/eventsCard.dart';
 import 'login.page.dart';
 
@@ -11,6 +10,7 @@ class EventsPage extends StatefulWidget {
 }
 
 class _EventsPageState extends State<EventsPage> {
+  EventProvider _eventProvider = EventProvider();
 
   @override
   void initState() {
@@ -27,74 +27,85 @@ class _EventsPageState extends State<EventsPage> {
           Text(
             "Events",
             style: TextStyle(
-              fontFamily: Fonts.SilkScreen,
-              fontWeight: FontWeight.w700,
-              color: Colors.white
-            ),
+                fontFamily: 'SilkScreen',
+                fontWeight: FontWeight.w700,
+                color: Colors.white),
             textScaleFactor: 2,
           ),
           Text(
             "Discover the events near you...",
             style: TextStyle(
-              fontFamily: Fonts.SilkScreen,
-              //fontWeight: FontWeight.w700,
-              color: Colors.white
-            ),
+                fontFamily: 'SilkScreen',
+                //fontWeight: FontWeight.w700,
+                color: Colors.white),
             textScaleFactor: 1,
           )
-        ]
-      )
-    );
+        ]));
 
     final cardContainer = Container(
-      margin: EdgeInsets.only(left: Layout.marginTrailingLeading, right: Layout.marginTrailingLeading),
-      child: ListView(
-      shrinkWrap: true,
-      children: [
-        eventsCard("Unawatuna Cleanup", "From 8.30 a.m onwards", Images.mountain),
-//        eventsCard("Catalina project", Images.forest),
-//        eventsCard("Akash's Gay Marriage", Images.forest),
-//        eventsCard("Akash's Gay Marriage", Images.forest),
-//        eventsCard("Akash's Gay Marriage", Images.forest),
-//        eventsCard("Akash's Gay Marriage", Images.forest),
-//        eventsCard("Akash's Gay Marriage", Images.forest),
-//        eventsCard("Akash's Gay Marriage", Images.forest),
-      ]
-    )
+      margin: EdgeInsets.only(left: 18.0, right: 18.0),
+      child: FutureBuilder(
+        future: _eventProvider.getEventData,
+        builder: (BuildContext context, AsyncSnapshot<List<Event>> snapshot) {
+          switch (snapshot.connectionState) {
+            case ConnectionState.none:
+              return Container(
+                child: Center(child: CircularProgressIndicator()),
+              );
+              break;
+
+            case ConnectionState.waiting:
+              return Container(
+                child: Center(child: CircularProgressIndicator()),
+              );
+              break;
+
+            case ConnectionState.active:
+              return Container(
+                child: Center(child: CircularProgressIndicator()),
+              );
+              break;
+
+            case ConnectionState.done:
+              if (snapshot.hasError) {
+                return Container(
+                  child: Text("Something went wrong!"),
+                );
+              } else {
+                return BuildList(eventData: snapshot.data);
+              }
+              break;
+          }
+          return Container();
+        },
+      ),
     );
 
     return new Scaffold(
-      body: Column(
-        children: [
-          Expanded(
-            flex: 1,
-            child: Stack(
-              children: [
-                Container(
-                  height: double.infinity,
-                  width: double.infinity,
-                  color: Colors.red,
-                  child: Image.asset(
-                    Images.sunset,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-                Positioned(
-                  top: 65,
-                  left: 25,
-                  child: pageHeader
-                )
-              ],
-            ),
-          ),
-          Expanded(
-            flex: MediaQuery.of(context).size.height > 680 ? 2 : 1,
-            child: Container(
-              alignment: Alignment.center,
-                child: cardContainer
-            ),
-          )
-        ],
+      body: SafeArea(
+        child: Container(
+            child: ListView(
+          children: <Widget>[pageHeader, cardContainer],
+        )),
+      ),
+    );
+  }
+}
+
+class BuildList extends StatelessWidget {
+  const BuildList({Key key, this.eventData}) : super(key: key);
+
+  final List<Event> eventData;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: ListView.builder(
+        shrinkWrap: true,
+        itemCount: eventData.length,
+        itemBuilder: (context, index) {
+          return EventsCard(eventData[index].name, eventData[index].banner);
+        },
       ),
     );
   }
