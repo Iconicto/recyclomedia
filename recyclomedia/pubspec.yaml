@@ -38,5 +38,6 @@ flutter:
       fonts:
         - asset: lib/assets/fonts/DisposableDroidBB.ttf
         - asset: lib/assets/fonts/DisposableDroidBB_bld.ttf
-# assets:
+  assets:
+    - lib/assets/images/login.jpg
 

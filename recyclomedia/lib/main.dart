@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:recyclomedia/assets/fonts.dart';
 import 'package:recyclomedia/pages/home.page.dart';
+import 'package:recyclomedia/pages/login.page.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,8 +15,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        fontFamily: Fonts.SilkScreen,
       ),
-      home: HomePage(),
+      home: LoginPage(),
     );
   }
 }
