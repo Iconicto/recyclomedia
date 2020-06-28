@@ -17,8 +17,8 @@ class _HomeState extends State<Home> {
   final List<Widget> _children = [
     DashboardPage(Colors.blue),
     EventsPage(Colors.tealAccent),
-    ProfilePage(Colors.deepOrange),
-    SettingsPage(Colors.green)
+    ProfilePage(),
+    SettingsPage()
   ];
 
   @override
@@ -49,8 +49,8 @@ class _HomeState extends State<Home> {
     });
   }
 
-
-  BottomNavigationBarItem NavigationItem(IconData icon, String underlinedNavTitleText, String navTitleText) {
+  BottomNavigationBarItem NavigationItem(
+      IconData icon, String underlinedNavTitleText, String navTitleText) {
     return BottomNavigationBarItem(
       icon: Icon(icon),
       title: Row(
@@ -66,8 +66,7 @@ class _HomeState extends State<Home> {
           Text(
             navTitleText,
             style: TextStyle(
-                fontFamily: Fonts.DisposableDroid,
-                fontSize: FontSize.NavItem),
+                fontFamily: Fonts.DisposableDroid, fontSize: FontSize.NavItem),
           )
         ],
       ),
