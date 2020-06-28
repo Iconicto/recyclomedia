@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recyclomedia/fonts.dart';
+import 'package:recyclomedia/images.dart';
 import 'package:recyclomedia/layout.constants.dart';
 import '../widgets/eventsCard.dart';
 
@@ -26,7 +27,7 @@ class _EventsPageState extends State<EventsPage> {
       padding: EdgeInsets.only(left: 0.05*vw, top: 0.06*vh),
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/eventsbg.png"),
+          image: AssetImage(Images.sunset),
           fit: BoxFit.cover,
         ),
       ),
@@ -61,8 +62,8 @@ class _EventsPageState extends State<EventsPage> {
       child: ListView(
       shrinkWrap: true,
       children: [
-        eventsCard("Beach Cleanup 2020", "assets/eventbg1.jpg"),
-        eventsCard("Akash's Gay Marriage", "assets/eventbg2.jpg")
+        eventsCard("Beach Cleanup 2020", Images.mountain),
+        eventsCard("Akash's Gay Marriage", Images.forest)
       ]
     )
     );

@@ -15,6 +15,7 @@ class UserCard extends StatelessWidget {
   Widget build(BuildContext context) {
     //Viewport
     final vw = MediaQuery.of(context).size.width;
+    final vh= MediaQuery.of(context).size.height;
 
     return new Container(
         width: vw,
@@ -27,23 +28,20 @@ class UserCard extends StatelessWidget {
             ),
             border: Border.all(color: Colors.black, width: 5)),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
+           children: [
             Align(
               alignment: Alignment.centerLeft,
-              child: Flexible(
-                flex: 1,
+
                 child: Text(userName,
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: FontSize.userCardHeading,
                         fontFamily: Fonts.SilkScreen)),
-              ),
             ),
             Align(
               alignment: Alignment.centerLeft,
               child: Container(
-                margin: EdgeInsets.only(top: Layout.contentSpacing),
+                margin: vh > 680 ? EdgeInsets.only(top: Layout.contentSpacing) :EdgeInsets.only(top: 5),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
