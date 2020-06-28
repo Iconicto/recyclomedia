@@ -3,6 +3,7 @@ import 'package:recyclomedia/fonts.dart';
 import 'package:recyclomedia/images.dart';
 import 'package:recyclomedia/layout.constants.dart';
 import '../widgets/eventsCard.dart';
+import 'login.page.dart';
 
 class EventsPage extends StatefulWidget {
   @override
@@ -19,19 +20,7 @@ class _EventsPageState extends State<EventsPage> {
   @override
   Widget build(BuildContext context) {
 
-    //Viewport
-    final vh = MediaQuery.of(context).size.height;
-    final vw = MediaQuery.of(context).size.width;
-
     final pageHeader = new Container(
-      padding: EdgeInsets.only(left: 0.05*vw, top: 0.06*vh),
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(Images.sunset),
-          fit: BoxFit.cover,
-        ),
-      ),
-      height: 0.25*vh,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -63,20 +52,49 @@ class _EventsPageState extends State<EventsPage> {
       shrinkWrap: true,
       children: [
         eventsCard("Beach Cleanup 2020", Images.mountain),
-        eventsCard("Akash's Gay Marriage", Images.forest)
+        eventsCard("Akash's Gay Marriage", Images.forest),
+        eventsCard("Akash's Gay Marriage", Images.forest),
+        eventsCard("Akash's Gay Marriage", Images.forest),
+        eventsCard("Akash's Gay Marriage", Images.forest),
+        eventsCard("Akash's Gay Marriage", Images.forest),
+        eventsCard("Akash's Gay Marriage", Images.forest),
+        eventsCard("Akash's Gay Marriage", Images.forest),
       ]
     )
     );
 
     return new Scaffold(
-      body: SafeArea(
-        child: Container(
-            child: ListView(
-              children: <Widget>[
-                pageHeader,
-                cardContainer
+      body: Column(
+        children: [
+          Expanded(
+            flex: 1,
+            child: Stack(
+              children: [
+                Container(
+                  height: double.infinity,
+                  width: double.infinity,
+                  color: Colors.red,
+                  child: Image.asset(
+                    Images.sunset,
+                    fit: BoxFit.fill,
+                  ),
+                ),
+                Positioned(
+                  top: 65,
+                  left: 25,
+                  child: pageHeader
+                )
               ],
-            )),
+            ),
+          ),
+          Expanded(
+            flex: MediaQuery.of(context).size.height > 680 ? 2 : 1,
+            child: Container(
+              alignment: Alignment.center,
+                child: cardContainer
+            ),
+          )
+        ],
       ),
     );
   }
