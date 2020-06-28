@@ -6,6 +6,10 @@
 
 Recyclomedia backend is made using django rest framework and backed by postgress database. You can find full API documentation made with postman below. Also Django Rest's API explorer view can be accesed from [recyclomedia.iconicto.com/api](https://recyclomedia.iconicto.com/api).
 
+## System Architecture
+
+![system-architecture](docs/imgs/system-architecture.png)
+
 ## Backend Features
 
 - Protected routes
@@ -21,11 +25,11 @@ Recyclomedia backend is made using django rest framework and backed by postgress
 
 #### Dashboard
 
-![ Dashboard ](docs/imgs/screenshot_1.png)
+![Dashboard](docs/imgs/screenshot_1.png)
 
 #### Event Page
 
-![ Event Page  ](docs/imgs/screenshot_2.png)
+![Event Page](docs/imgs/screenshot_2.png)
 
 ## API documentation
 
