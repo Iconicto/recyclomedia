@@ -55,7 +55,6 @@ class _DonationsPageState extends State<DonationsPage> {
                                     blurRadius: 10.0,
                                     color: Colors.white,
                                   ),
-//
                                 ],
                                 color: Colors.black,
                                 fontSize: 40,
@@ -74,16 +73,17 @@ class _DonationsPageState extends State<DonationsPage> {
           Expanded(
             flex: MediaQuery.of(context).size.height > 680 ? 1 : 2,
             child: Container(
+
               height: double.infinity,
               alignment: Alignment.center,
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 24),
+                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 10),
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                          "We are people of same earth trying to save the very world we live on. Our goal is to promote environmental activism and donate to charities. So help us make this world a better place. ", style: TextStyle(fontSize: 18 ),textAlign: TextAlign.justify,),
+                          "We are people of same earth trying to save the very world we live on. Our goal is to promote environmental activism and donate to charities. So help us make this world a better place.", style: TextStyle(fontSize: 18 ),textAlign: TextAlign.justify,),
                       Text("Amount"),
                       Divider(
                         height: 5,

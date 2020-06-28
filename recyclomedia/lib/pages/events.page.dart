@@ -51,14 +51,14 @@ class _EventsPageState extends State<EventsPage> {
       child: ListView(
       shrinkWrap: true,
       children: [
-        eventsCard("Beach Cleanup 2020", Images.mountain),
-        eventsCard("Akash's Gay Marriage", Images.forest),
-        eventsCard("Akash's Gay Marriage", Images.forest),
-        eventsCard("Akash's Gay Marriage", Images.forest),
-        eventsCard("Akash's Gay Marriage", Images.forest),
-        eventsCard("Akash's Gay Marriage", Images.forest),
-        eventsCard("Akash's Gay Marriage", Images.forest),
-        eventsCard("Akash's Gay Marriage", Images.forest),
+        eventsCard("Unawatuna Cleanup", "From 8.30 a.m onwards", Images.mountain),
+//        eventsCard("Catalina project", Images.forest),
+//        eventsCard("Akash's Gay Marriage", Images.forest),
+//        eventsCard("Akash's Gay Marriage", Images.forest),
+//        eventsCard("Akash's Gay Marriage", Images.forest),
+//        eventsCard("Akash's Gay Marriage", Images.forest),
+//        eventsCard("Akash's Gay Marriage", Images.forest),
+//        eventsCard("Akash's Gay Marriage", Images.forest),
       ]
     )
     );
