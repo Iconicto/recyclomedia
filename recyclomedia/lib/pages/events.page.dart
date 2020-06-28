@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recyclomedia/fonts.dart';
+import 'package:recyclomedia/layout.constants.dart';
 import '../widgets/eventsCard.dart';
 
 class EventsPage extends StatefulWidget {
@@ -56,7 +57,7 @@ class _EventsPageState extends State<EventsPage> {
     );
 
     final cardContainer = Container(
-      margin: EdgeInsets.only(left: 18.0, right: 18.0),
+      margin: EdgeInsets.only(left: Layout.marginTrailingLeading, right: Layout.marginTrailingLeading),
       child: ListView(
       shrinkWrap: true,
       children: [
