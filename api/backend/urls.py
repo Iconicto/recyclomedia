@@ -1,12 +1,13 @@
 from django.urls import include, path
 from rest_framework import routers
-from .views import PostViewSet, UserViewSet, OrganizationViewSet, EventViewSet
+from .views import PostViewSet, UserViewSet, OrganizationViewSet, EventViewSet, BadgeViewSet
 
 router = routers.DefaultRouter()
-router.register(r'user', UserViewSet, basename='user')
+router.register(r'users', UserViewSet, basename='users')
 router.register(r'organizations', OrganizationViewSet)
 router.register(r'events', EventViewSet)
-router.register(r'posts', PostViewSet)
+router.register(r'posts', PostViewSet, basename='posts')
+router.register(r'badges', BadgeViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.

@@ -1,10 +1,12 @@
 from django.contrib import admin
-from .models import User, Organization, Event, Post
+from .models import User, Organization, Event, Post, Badge
 
 
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('user_id', 'first_name', 'last_name', 'email', 'experience_points', 'profile_picture')
-    list_display_links = ('user_id', 'first_name', 'last_name', 'email', 'experience_points', 'profile_picture')
+    list_display = ('user_id', 'first_name', 'last_name', 'email', 'experience_points', 'profile_picture',
+                    'badge_experience_points')
+    list_display_links = ('user_id', 'first_name', 'last_name', 'email', 'experience_points', 'profile_picture',
+                          'badge_experience_points')
     list_filter = ('user_id', 'first_name', 'last_name', 'email')
     list_per_page = 30
 
@@ -36,7 +38,14 @@ class PostAdmin(admin.ModelAdmin):
     list_per_page = 30
 
 
+class BadgeAdmin(admin.ModelAdmin):
+    list_display = ('badge_id', 'name', 'description', 'icon', 'point_awarded')
+    list_display_links = ('badge_id', 'name', 'description', 'icon', 'point_awarded')
+    list_per_page = 30
+
+
 admin.site.register(User, UserAdmin)
 admin.site.register(Organization, OrganizationAdmin)
 admin.site.register(Event, EventAdmin)
 admin.site.register(Post, PostAdmin)
+admin.site.register(Badge, BadgeAdmin)
