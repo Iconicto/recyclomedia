@@ -26,20 +26,22 @@ class DashboardPageState extends State<DashboardPage> {
     final vh = MediaQuery.of(context).size.height;
 
     final verticalHeader = Column(
-      children: [Align(
-        alignment: Alignment.centerLeft,
-        child: Text(
-          "WELCOME BACK!",
-          style: TextStyle(
-              fontFamily: Fonts.SilkScreen, fontSize: FontSize.Heading),
+      children: [
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            "WELCOME BACK!",
+            style: TextStyle(
+                fontFamily: Fonts.SilkScreen, fontSize: FontSize.Heading),
+          ),
         ),
-      ),
         UserCard(
           userName: "Akassharjun Shanmugarajah",
           imgurl: "lib/assets/images/eventsbg.png",
           label: "Green-o-lantern",
           level: 10,
-        ),],
+        ),
+      ],
     );
 
     final horizontalHeader = Row(
@@ -58,10 +60,15 @@ class DashboardPageState extends State<DashboardPage> {
               children: [
                 Text(
                   "Profile",
-                  style: TextStyle(color: Colors.grey,
-                      fontFamily: Fonts.SilkScreen, fontSize: FontSize.userCardText),
+                  style: TextStyle(
+                      color: Colors.grey,
+                      fontFamily: Fonts.SilkScreen,
+                      fontSize: FontSize.userCardText),
                 ),
-                Icon(Icons.chevron_right, color: Colors.grey,)
+                Icon(
+                  Icons.chevron_right,
+                  color: Colors.grey,
+                )
               ],
             ),
           ),
@@ -72,8 +79,9 @@ class DashboardPageState extends State<DashboardPage> {
       margin: EdgeInsets.only(
           left: Layout.marginTrailingLeading,
           right: Layout.marginTrailingLeading),
-
-      padding: vh > 680 ? EdgeInsets.only(top: 0.06 * vh) : EdgeInsets.only(top: 0.02 * vh),
+      padding: vh > 680
+          ? EdgeInsets.only(top: 0.06 * vh)
+          : EdgeInsets.only(top: 0.02 * vh),
       child: Column(
         children: [
           vh > 480 ? verticalHeader : horizontalHeader,
@@ -86,11 +94,11 @@ class DashboardPageState extends State<DashboardPage> {
                 style: TextStyle(
                     fontFamily: Fonts.SilkScreen, fontSize: FontSize.Heading),
               ),
-            ),),
+            ),
+          ),
         ],
       ),
     );
-
 
     final cardContainer = Padding(
       padding: EdgeInsets.symmetric(horizontal: Layout.marginTrailingLeading),
@@ -99,7 +107,8 @@ class DashboardPageState extends State<DashboardPage> {
           scrollDirection: Axis.vertical,
           physics: ScrollPhysics(),
           children: [
-            eventsCard("Beach Cleanup 2020", "from 8.30 am onwards", Images.mountain),
+            EventsCard(
+                "Beach Cleanup 2020", "from 8.30 am onwards", Images.mountain),
 //            eventsCard("Akash's Gay Marriage", Images.forest),
 //            eventsCard("Akash's Gay Marriage", Images.sunset),
 //            eventsCard("Beach Cleanup 2020", Images.mountain),
@@ -112,32 +121,30 @@ class DashboardPageState extends State<DashboardPage> {
     );
 
     return new Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              flex: 3,
-              child: Stack(
-                children: [
-                  Container(
+        body: SafeArea(
+      child: Column(
+        children: [
+          Expanded(
+            flex: 3,
+            child: Stack(
+              children: [
+                Container(
                     height: double.infinity,
                     width: double.infinity,
-                    child: header
-                  ),
-                ],
-              ),
+                    child: header),
+              ],
             ),
-            Expanded(
-              flex: MediaQuery.of(context).size.height > 680 ? 4 : 6,
-              child: Container(
+          ),
+          Expanded(
+            flex: MediaQuery.of(context).size.height > 680 ? 4 : 6,
+            child: Container(
                 margin: EdgeInsets.symmetric(vertical: Layout.cardTopMargin),
                 height: double.infinity,
                 alignment: Alignment.center,
-                child: cardContainer
-              ),
-            )
-          ],
-        ),
-        ));
+                child: cardContainer),
+          )
+        ],
+      ),
+    ));
   }
 }

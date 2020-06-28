@@ -104,7 +104,7 @@ class BuildList extends StatelessWidget {
         shrinkWrap: true,
         itemCount: eventData.length,
         itemBuilder: (context, index) {
-          return EventsCard(eventData[index].name, eventData[index].banner);
+          return EventsCard(eventData[index].name, eventData[index].banner, eventData[index].content);
         },
       ),
     );
