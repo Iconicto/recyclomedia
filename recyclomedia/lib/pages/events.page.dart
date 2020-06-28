@@ -20,11 +20,20 @@ class _EventsPageState extends State<EventsPage> {
 
   @override
   Widget build(BuildContext context) {
+    //Viewport
+    final vh = MediaQuery.of(context).size.height;
+    final vw = MediaQuery.of(context).size.width;
 
     final pageHeader = new Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        height: 0.30 * vh,
+        padding: EdgeInsets.only(left: 10.0, top: 30.0),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("lib/assets/images/eventsbg.png"),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(
             "Events",
             style: TextStyle(
@@ -142,11 +151,11 @@ class BuildList extends StatelessWidget {
                         eventOrgEmail: eventData[index].managedBy.email),
                   ));
             },
-            child: EventsCard(eventData[index].name, "",eventData[index].banner),
+            child:
+                EventsCard(eventData[index].name, "", eventData[index].banner),
           );
         },
       ),
     );
   }
-
 }
