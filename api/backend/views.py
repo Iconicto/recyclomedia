@@ -22,7 +22,7 @@ class UserViewSet(viewsets.ViewSet):
     permission_classes = [AllowAny]
 
     def list(self, request):
-        queryset = User.objects.all()
+        queryset = User.objects.all().order_by("user_id")
         serializer = BasicUserSerializer(queryset, many=True)
         return Response(serializer.data)
 
@@ -51,17 +51,17 @@ class UserViewSet(viewsets.ViewSet):
 
 
 class OrganizationViewSet(viewsets.ModelViewSet):
-    queryset = Organization.objects.all()
+    queryset = Organization.objects.all().order_by("org_id")
     serializer_class = OrganizationSerializer
 
 
 class EventViewSet(viewsets.ModelViewSet):
-    queryset = Event.objects.all()
+    queryset = Event.objects.all().order_by("event_id")
     serializer_class = EventSerializer
 
 
 class BadgeViewSet(viewsets.ModelViewSet):
-    queryset = Badge.objects.all()
+    queryset = Badge.objects.all().order_by("badge_id")
     serializer_class = BadgeSerializer
 
 
@@ -69,7 +69,7 @@ class PostViewSet(viewsets.ViewSet):
     permission_classes = [AllowAny]
 
     def list(self, request):
-        queryset = Post.objects.all()
+        queryset = Post.objects.all().order_by("post_id")
         serializer = PostSerializer(queryset, many=True)
         return Response(serializer.data)
 

@@ -23,14 +23,14 @@ class BasicUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('user_id', 'first_name', 'last_name', 'email', 'experience_points', 'profile_picture', 'badges',
+        fields = ('first_name', 'last_name', 'email', 'experience_points', 'profile_picture', 'badges',
                   'badge_experience_points')
 
 
 class OrganizationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Organization
-        fields = ('org_id', 'name', 'email', 'org_picture')
+        fields = ('name', 'email', 'org_picture')
 
 
 class EventSerializer(serializers.ModelSerializer):
