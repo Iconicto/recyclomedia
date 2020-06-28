@@ -17,16 +17,19 @@ Recyclomedia backend is made using django rest framework and backed by postgress
 - End to End TLS
 - Horizontal and Vertical scaling (thanks Kubernetes)
 
+### Admin's View vs Org Admins View
 
-**Image below shows the Admin's View vs Org Admins View**
+#### Dashboard
 
-|   Dashboard     |  Event Page   |
-| :-------------: |:-------------:|
-|![ Dashboard ](docs/imgs/screenshot_1.png)| ![ Event Page  ](docs/imgs/screenshot_2.png) |
+![ Dashboard ](docs/imgs/screenshot_1.png)
 
+#### Event Page
 
+![ Event Page  ](docs/imgs/screenshot_2.png)
 
-[API documentation](https://documenter.getpostman.com/view/6342371/T17AkB4T?version=latest)
+## API documentation
+
+[documenter.getpostman.com/view/6342371/T17AkB4T?version=latest](https://documenter.getpostman.com/view/6342371/T17AkB4T?version=latest)
 
 ## API Routes
 
