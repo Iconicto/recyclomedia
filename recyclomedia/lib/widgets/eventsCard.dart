@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 class EventsCard extends StatelessWidget {
   final String eventName;
   final String imgurl;
+  final String details;
 
-  const EventsCard(this.eventName, this.imgurl);
+  const EventsCard(this.eventName,this.details, this.imgurl);
 
   @override
   Widget build(BuildContext context) {
@@ -14,18 +15,65 @@ class EventsCard extends StatelessWidget {
     final vw = MediaQuery.of(context).size.width;
 
     return new Container(
-        height: 84.0,
-        width: vw,
-        margin: EdgeInsets.only(top: 10.0),
-        decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(imgurl),
-              fit: BoxFit.cover,
+      height: 84.0,
+      width: vw,
+      margin: EdgeInsets.only(top: 10.0),
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(imgurl),
+          fit: BoxFit.cover,
+        ),
+        border: Border.all(color: Colors.black, width: 5)
+      ),
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              eventName,
+              style: TextStyle(
+                fontFamily: 'SilkScreen',
+                fontSize: 16,
+                color: Colors.white,
+                shadows: <Shadow>[
+              Shadow(
+              offset: Offset(0, 0),
+              blurRadius: 20.0,
+              color: Colors.black,
             ),
-            border: Border.all(color: Colors.black, width: 5)),
-        child: Center(
-            child: Text(eventName,
-                style:
-                    TextStyle(fontFamily: 'SilkScreen', color: Colors.white))));
+            Shadow(
+              offset: Offset(0, 0),
+              blurRadius: 10.0,
+              color: Colors.black,
+            ),
+            ],
+                )
+              ),
+
+            Text(
+                details,
+                style: TextStyle(
+                  fontFamily: 'SilkScreen',
+                  fontSize: 12,
+                  color: Colors.white,
+                  shadows: <Shadow>[
+                    Shadow(
+                      offset: Offset(0, 0),
+                      blurRadius: 20.0,
+                      color: Colors.black,
+                    ),
+                    Shadow(
+                      offset: Offset(0, 0),
+                      blurRadius: 10.0,
+                      color: Colors.black,
+                    ),
+                  ],
+                )
+            ),
+          ],
+        )
+      )
+    );
   }
 }

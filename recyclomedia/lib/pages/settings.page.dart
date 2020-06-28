@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recyclomedia/pages/donations.page.dart';
 import 'package:recyclomedia/pages/aboutus.page.dart';
 import 'package:recyclomedia/pages/landing.page.dart';
 
@@ -98,21 +99,31 @@ class SettingsPageState extends State<SettingsPage> {
                       color: Colors.transparent,
                       height: 15,
                     ),
-                    Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 12),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Image.asset('lib/assets/images/donate.png'),
-                          Text(
-                            "DONATE",
-                            style: TextStyle(fontSize: 18),
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                            builder: (context) => DonationsPage(),
                           ),
-                        ],
-                      ),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black, width: 5),
+                        );
+                      },
+                      child: Container(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Image.asset('lib/assets/images/donate.png'),
+                            Text(
+                              "DONATE",
+                              style: TextStyle(fontSize: 18),
+                            ),
+                          ],
+                        ),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black, width: 5),
+                        ),
                       ),
                     ),
                     Divider(

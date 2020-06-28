@@ -76,7 +76,7 @@ class DashboardPageState extends State<DashboardPage> {
       padding: vh > 680 ? EdgeInsets.only(top: 0.06 * vh) : EdgeInsets.only(top: 0.02 * vh),
       child: Column(
         children: [
-          vh > 680 ? verticalHeader : horizontalHeader,
+          vh > 480 ? verticalHeader : horizontalHeader,
           Container(
             margin: EdgeInsets.only(top: Layout.contentSpacing),
             child: Align(
@@ -99,15 +99,15 @@ class DashboardPageState extends State<DashboardPage> {
           scrollDirection: Axis.vertical,
           physics: ScrollPhysics(),
           children: [
-            EventsCard("Beach Cleanup 2020", Images.mountain),
-            EventsCard("Akash's Gay Marriage", Images.forest),
-            EventsCard("Akash's Gay Marriage", Images.sunset),
-            EventsCard("Beach Cleanup 2020", Images.mountain),
-            EventsCard("Akash's Gay Marriage", Images.forest),
-            EventsCard("Akash's Gay Marriage", Images.sunset),
-            EventsCard("Beach Cleanup 2020", Images.mountain),
-            EventsCard("Akash's Gay Marriage", Images.forest),
-            EventsCard("Akash's Gay Marriage", Images.sunset),
+            eventsCard("Beach Cleanup 2020", "from 8.30 am onwards", Images.mountain),
+//            eventsCard("Akash's Gay Marriage", Images.forest),
+//            eventsCard("Akash's Gay Marriage", Images.sunset),
+//            eventsCard("Beach Cleanup 2020", Images.mountain),
+//            eventsCard("Akash's Gay Marriage", Images.forest),
+//            eventsCard("Akash's Gay Marriage", Images.sunset),
+//            eventsCard("Beach Cleanup 2020", Images.mountain),
+//            eventsCard("Akash's Gay Marriage", Images.forest),
+//            eventsCard("Akash's Gay Marriage", Images.sunset),
           ]),
     );
 
