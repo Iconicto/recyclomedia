@@ -2,9 +2,22 @@
 
 ![Backend CI/CD Pipeline](https://github.com/Iconicto/recyclomedia/workflows/Backend%20CI/CD%20Pipeline/badge.svg?branch=master)
 
+Recyclopedia is a vintage inspired digital platform that aims to save the planet from the pollution which is the major threat to the functioning of earth. Through this platform, **we are creating an energetic community that aims to combat the world from pollution**. The key features of our platform are,
+
+1) The platform allows its users to engage in events related to preventing pollution in the world. Events like beach clean up, community gathering, and workshops are notified under the events section.
+2) The users are allowed to donate to our body, to help us host events.
+3) A gamification system is incorporated n the system to encourage the participation of the user in our platform. The users will get a tokens of appreciation related to their hierarchy in the levels of contribution.
+
 # System Architecture
 
 ![system-architecture](docs/imgs/system-architecture.png)
+
+# UI Mockups
+
+| Sign-Up | Sign-In | Welcome Screen | My-Profile | Settings | About-us | Donate to a cause |
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| ![sign-up screen](docs/imgs/mockups/1.png) | ![sign-in screen](docs/imgs/mockups/2.png) | ![welcome screen](docs/imgs/mockups/3.png) | ![my-profile screen](docs/imgs/mockups/4.png) | ![settings screen](docs/imgs/mockups/5.png) | ![about-us screen](docs/imgs/mockups/6.png) | ![donation screen](docs/imgs/mockups/7.png) |
+
 
 # Backend
 
@@ -123,3 +136,16 @@ Host: recyclomedia.iconicto.com
 GET /api/badges/ HTTP/1.1
 Host: recyclomedia.iconicto.com
 ```
+
+## Team
+
+- [Akassharjun Shanmugarajah](https://www.linkedin.com/in/akassharjun/) (UI/UX, Flutter Developer)
+  - @akassharjun
+- [Suvin Nimnaka](https://www.linkedin.com/in/suvink/) (UI/UX, Flutter Developer)
+  - @Suvink
+- [Visal Rajapakse](https://www.linkedin.com/in/visalrajapakse99/) (UI/UX, Flutter Developer)
+  - @v15a1
+- [Isala Piyaris](https://www.linkedin.com/in/isalapiyarisi/) (Backend / DevOps Engineering)
+  - @mrsupiri
+- [Thivvyan Karuneswaran](https://www.linkedin.com/in/thivvyankaruneswaran/) (Business Analyst)
+  - @thivvyan

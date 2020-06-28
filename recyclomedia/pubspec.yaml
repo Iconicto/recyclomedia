@@ -41,9 +41,6 @@ flutter:
   assets:
     - lib/assets/images/login.jpg
     - lib/assets/images/signup.png
-    - assets/eventbg1.jpg
-    - assets/eventbg2.jpg
-    - assets/eventsbg.png
     - lib/assets/images/event.png
     - lib/assets/images/level.png
     - lib/assets/images/earthlover.png
@@ -55,6 +52,11 @@ flutter:
     - lib/assets/images/loading.gif
     - lib/assets/images/email.png
     - lib/assets/images/error.gif
+    - lib/assets/images/eventbg1.jpg
+    - lib/assets/images/eventbg2.jpg
+    - lib/assets/images/eventsbg.png
+    - lib/assets/images/donations.gif
+    - lib/assets/images/rings.gif
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
