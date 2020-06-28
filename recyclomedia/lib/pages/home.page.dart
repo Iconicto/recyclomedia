@@ -44,8 +44,8 @@ class _HomeState extends State<Home> {
       child: Scaffold(
         body: PageView(
           controller: _pageController,
-          onPageChanged: (index){
-            setState(()=> _currentNavIndex = index);
+          onPageChanged: (index) {
+            setState(() => _currentNavIndex = index);
           },
           children: [
             DashboardPage(Colors.blue),
@@ -78,7 +78,6 @@ class _HomeState extends State<Home> {
       _currentNavIndex = index;
       _pageController.animateToPage(index,
           duration: Duration(milliseconds: 500), curve: Curves.easeInOut);
-
     });
   }
 
