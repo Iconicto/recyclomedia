@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:recyclomedia/pages/home.page.dart';
 import 'package:recyclomedia/pages/signup.page.dart';
+import 'package:recyclomedia/provider/login.provider.dart';
 
 class LoginPage extends StatelessWidget {
+  LoginModel _loginModel;
+
   @override
   Widget build(BuildContext context) {
+    _loginModel = Provider.of<LoginModel>(context, listen: true);
+
     return Scaffold(
       body: Column(
         children: [
@@ -48,14 +54,14 @@ class LoginPage extends StatelessWidget {
                         height: 20,
                         color: Colors.transparent,
                       ),
-                      Text("Username"),
+                      Text("Email"),
                       Divider(
                         height: 5,
                         color: Colors.transparent,
                       ),
                       TextField(
                         decoration: InputDecoration(
-                          hintText: 'Enter your username here',
+                          hintText: 'Enter your email here',
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Colors.black,
@@ -78,6 +84,9 @@ class LoginPage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(0),
                           ),
                         ),
+                        onChanged: (value) {
+                          _loginModel.email = value;
+                        },
                       ),
                       Divider(
                         height: 20,
@@ -113,6 +122,9 @@ class LoginPage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(0),
                           ),
                         ),
+                        onChanged: (value) {
+                          _loginModel.password = value;
+                        },
                       ),
                       Divider(
                         height: 10,
@@ -129,13 +141,30 @@ class LoginPage extends StatelessWidget {
                         color: Colors.transparent,
                       ),
                       GestureDetector(
-                        onTap: (){
-                          Navigator.push(
-                            context,
-                            new MaterialPageRoute(
-                              builder: (context) => Home(),
-                            ),
-                          );
+                        onTap: () async {
+                          if (await _loginModel.authenticate()) {
+                            Navigator.push(
+                              context,
+                              new MaterialPageRoute(
+                                builder: (context) => Home(),
+                              ),
+                            );
+                          } else {
+                            showDialog(
+                              context: context,
+                              builder: (ctx) => AlertDialog(
+                                title: Text("Invalid login credentials"),
+                                actions: [
+                                  FlatButton(
+                                    child: Text("OK"),
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                  )
+                                ],
+                              ),
+                            );
+                          }
                         },
                         child: Container(
                           padding: EdgeInsets.symmetric(vertical: 20),
