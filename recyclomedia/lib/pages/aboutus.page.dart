@@ -97,7 +97,7 @@ class AboutUsPageState extends State<AboutUsPage> {
                               ),
                               Container(
                                 child: Text(
-                                    "Team of 5, named Iconicto. Undergraduates reading a Computer Science degree.",
+                                    "We, Iconicto are a team of 5 undergraduates from Sri Lanka who think.create!",
                                     textAlign: TextAlign.justify,
                                     style: TextStyle(fontSize: 17)),
                               )
