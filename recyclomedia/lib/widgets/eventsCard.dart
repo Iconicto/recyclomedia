@@ -20,7 +20,7 @@ class EventsCard extends StatelessWidget {
         margin: EdgeInsets.only(top: 10.0),
         decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(imgurl),
+              image: imgurl.contains('asset') ? AssetImage(imgurl) : NetworkImage(imgurl),
               fit: BoxFit.cover,
             ),
             border: Border.all(color: Colors.black, width: 5)),
