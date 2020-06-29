@@ -15,7 +15,7 @@ class UserCard extends StatelessWidget {
   Widget build(BuildContext context) {
     //Viewport
     final vw = MediaQuery.of(context).size.width;
-    final vh= MediaQuery.of(context).size.height;
+    final vh = MediaQuery.of(context).size.height;
 
     return new Container(
         width: vw,
@@ -28,36 +28,76 @@ class UserCard extends StatelessWidget {
             ),
             border: Border.all(color: Colors.black, width: 5)),
         child: Column(
-           children: [
+          children: [
             Align(
               alignment: Alignment.centerLeft,
-
-                child: Text(userName,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: FontSize.userCardHeading,
-                        fontFamily: Fonts.SilkScreen)),
+              child: Text(userName,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: FontSize.userCardHeading,
+                    fontFamily: Fonts.SilkScreen,
+                    shadows: <Shadow>[
+                      Shadow(
+                        offset: Offset(0, 0),
+                        blurRadius: 20.0,
+                        color: Colors.black,
+                      ),
+                      Shadow(
+                        offset: Offset(0, 0),
+                        blurRadius: 10.0,
+                        color: Colors.black,
+                      ),
+                    ],
+                  )),
             ),
             Align(
               alignment: Alignment.centerLeft,
               child: Container(
-                margin: vh > 680 ? EdgeInsets.only(top: Layout.contentSpacing) :EdgeInsets.only(top: 5),
+                margin: vh > 680
+                    ? EdgeInsets.only(top: Layout.contentSpacing)
+                    : EdgeInsets.only(top: 40),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       label,
                       style: TextStyle(
-                          color: Colors.white,
-                          fontSize: FontSize.userCardText,
-                          fontFamily: Fonts.SilkScreen),
+                        color: Colors.white,
+                        fontSize: FontSize.userCardText,
+                        fontFamily: Fonts.SilkScreen,
+                        shadows: <Shadow>[
+                          Shadow(
+                            offset: Offset(0, 0),
+                            blurRadius: 20.0,
+                            color: Colors.black,
+                          ),
+                          Shadow(
+                            offset: Offset(0, 0),
+                            blurRadius: 10.0,
+                            color: Colors.black,
+                          ),
+                        ],
+                      ),
                     ),
                     Text(
                       level.toString(),
                       style: TextStyle(
-                          color: Colors.white,
-                          fontSize: FontSize.userCardText,
-                          fontFamily: Fonts.SilkScreen),
+                        color: Colors.white,
+                        fontSize: FontSize.userCardText,
+                        fontFamily: Fonts.SilkScreen,
+                        shadows: <Shadow>[
+                          Shadow(
+                            offset: Offset(0, 0),
+                            blurRadius: 20.0,
+                            color: Colors.black,
+                          ),
+                          Shadow(
+                            offset: Offset(0, 0),
+                            blurRadius: 10.0,
+                            color: Colors.black,
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
