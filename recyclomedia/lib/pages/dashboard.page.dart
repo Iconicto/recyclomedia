@@ -37,7 +37,7 @@ class DashboardPageState extends State<DashboardPage> {
         ),
         UserCard(
           userName: "Akassharjun Shanmugarajah",
-          imgurl: "lib/assets/images/eventsbg.png",
+          imgurl: Images.rainGIF,
           label: "Green-o-lantern",
           level: 10,
         ),
@@ -107,16 +107,12 @@ class DashboardPageState extends State<DashboardPage> {
           scrollDirection: Axis.vertical,
           physics: ScrollPhysics(),
           children: [
-            EventsCard(
-                "Beach Cleanup 2020", "from 8.30 am onwards", Images.mountain),
-//            eventsCard("Akash's Gay Marriage", Images.forest),
-//            eventsCard("Akash's Gay Marriage", Images.sunset),
-//            eventsCard("Beach Cleanup 2020", Images.mountain),
-//            eventsCard("Akash's Gay Marriage", Images.forest),
-//            eventsCard("Akash's Gay Marriage", Images.sunset),
-//            eventsCard("Beach Cleanup 2020", Images.mountain),
-//            eventsCard("Akash's Gay Marriage", Images.forest),
-//            eventsCard("Akash's Gay Marriage", Images.sunset),
+            EventsCard("Beach Cleanup 2020", "from 8.30 am onwards", Images.sunset),
+            EventsCard("City Cleanup 2020", "from 9.30 am onwards", Images.palmsGIF),
+            EventsCard("Forest Cleanup 2020", "from 10.30 am onwards @SINGHARAJA RAIN FOREST", Images.forest),
+            EventsCard("Beach Cleanup 2020", "from 8.30 am onwards", Images.sunset),
+            EventsCard("Road Cleanup 2020", "from 10.30 am onwards", Images.palmsGIF),
+            EventsCard("Forest Cleanup 2020", "from 6.30 am onwards", Images.mountain),
           ]),
     );
 
@@ -136,7 +132,7 @@ class DashboardPageState extends State<DashboardPage> {
             ),
           ),
           Expanded(
-            flex: MediaQuery.of(context).size.height > 680 ? 4 : 6,
+            flex: MediaQuery.of(context).size.height > 680 ? 6 : 6,
             child: Container(
                 margin: EdgeInsets.symmetric(vertical: Layout.cardTopMargin),
                 height: double.infinity,

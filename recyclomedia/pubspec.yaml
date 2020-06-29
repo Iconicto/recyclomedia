@@ -67,6 +67,11 @@ flutter:
     - lib/assets/images/akash.jpg
     - lib/assets/images/visal.jpg
     - lib/assets/images/thivvyan.jpg
+    - lib/assets/images/palms.gif
+    - lib/assets/images/rain.gif
+    - lib/assets/images/urbanArea.gif
+    - lib/assets/images/city.gif
+    - lib/assets/images/sunsetCity.gif
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -48,6 +48,7 @@ class EventsCard extends StatelessWidget {
                   ],
                 )),
             Text(details,
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   fontFamily: 'SilkScreen',
                   fontSize: 12,

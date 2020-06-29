@@ -1,5 +1,6 @@
 import 'package:audioplayers/audio_cache.dart';
 import 'package:flutter/material.dart';
+import 'package:recyclomedia/images.dart';
 import 'package:recyclomedia/pages/donations.page.dart';
 import 'package:recyclomedia/pages/aboutus.page.dart';
 import 'package:recyclomedia/pages/landing.page.dart';
@@ -28,8 +29,8 @@ class SettingsPageState extends State<SettingsPage> {
                 height: double.infinity,
                 width: double.infinity,
                 child: Image.asset(
-                  "lib/assets/images/login.jpg",
-                  fit: BoxFit.fill,
+                  Images.cityGIF,
+                  fit: BoxFit.cover,
                 ),
               ),
               Positioned(
