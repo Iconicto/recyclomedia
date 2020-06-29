@@ -63,7 +63,12 @@ flutter:
     - assets/audio/click.wav
     - assets/audio/eventsound.wav
     - assets/audio/pageload.wav
+    - assets/audio/donate.wav
     - lib/assets/images/isala.jpg
+    - lib/assets/images/suvin.jpg
+    - lib/assets/images/akash.jpg
+    - lib/assets/images/visal.jpg
+    - lib/assets/images/thivvyan.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

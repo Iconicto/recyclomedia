@@ -14,8 +14,8 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = (
-            'user_id', 'first_name', 'last_name', 'email', 'password', 'experience_points', 'profile_picture', 'badges',
-            'badge_experience_points')
+            'user_id', 'first_name', 'last_name', 'username', 'email', 'password', 'experience_points',
+            'profile_picture', 'badges', 'badge_experience_points')
 
 
 class BasicUserSerializer(serializers.ModelSerializer):
@@ -23,7 +23,7 @@ class BasicUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'email', 'experience_points', 'profile_picture', 'badges',
+        fields = ('first_name', 'last_name', 'username', 'email', 'experience_points', 'profile_picture', 'badges',
                   'badge_experience_points')
 
 

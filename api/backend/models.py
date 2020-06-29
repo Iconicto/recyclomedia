@@ -15,12 +15,13 @@ class Badge(models.Model):
 
 class User(models.Model):
     user_id = models.AutoField(editable=False, verbose_name='User ID', primary_key=True)
-    first_name = models.CharField(max_length=100, blank=False, null=False)
-    last_name = models.CharField(max_length=100, blank=False, null=False)
+    first_name = models.CharField(max_length=100, blank=True, null=True)
+    last_name = models.CharField(max_length=100, blank=True, null=True)
+    username = models.CharField(max_length=100, blank=False, null=False)
     email = models.EmailField(blank=False, null=False, unique=True)
     password = models.CharField(max_length=100, blank=False, null=False)
     experience_points = models.IntegerField(default=0, blank=False, null=False)
-    profile_picture = models.ImageField(upload_to='profile_picture/%Y/%m/%d/')
+    profile_picture = models.ImageField(upload_to='profile_picture/%Y/%m/%d/', blank=True, null=True)
     badges = models.ManyToManyField(Badge, blank=True)
 
     @property
