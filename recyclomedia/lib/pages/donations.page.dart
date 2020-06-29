@@ -48,26 +48,6 @@ class _DonationsPageState extends State<DonationsPage> {
                               color: Colors.black,
                               size: 40,
                             ),
-                            Text(
-                              "Donations",
-                              style: TextStyle(
-                                shadows: <Shadow>[
-                                  Shadow(
-                                    offset: Offset(0, 0),
-                                    blurRadius: 20.0,
-                                    color: Colors.white,
-                                  ),
-                                  Shadow(
-                                    offset: Offset(0, 0),
-                                    blurRadius: 10.0,
-                                    color: Colors.white,
-                                  ),
-                                ],
-                                color: Colors.black,
-                                fontSize: 40,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
                           ],
                         ),
                       ),
@@ -89,9 +69,25 @@ class _DonationsPageState extends State<DonationsPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
+                        "Donations",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Divider(
+                        height: 10,
+                        color: Colors.transparent,
+                      ),
+                      Text(
                         "We are people of same earth trying to save the very world we live on. Our goal is to promote environmental activism and donate to charities. So help us make this world a better place.",
                         style: TextStyle(fontSize: 18),
                         textAlign: TextAlign.justify,
+                      ),
+                      Divider(
+                        height: 15,
+                        color: Colors.transparent,
                       ),
                       Text("Amount"),
                       Divider(
@@ -126,7 +122,7 @@ class _DonationsPageState extends State<DonationsPage> {
                         ),
                       ),
                       Divider(
-                        height: 30,
+                        height: 25,
                         color: Colors.transparent,
                       ),
                       GestureDetector(
