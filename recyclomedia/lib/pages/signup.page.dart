@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:recyclomedia/pages/home.page.dart';
 import 'package:recyclomedia/pages/login.page.dart';
+import 'package:recyclomedia/provider/signup.provider.dart';
 
 class SignUpPage extends StatelessWidget {
+  SignUpModel _signUpModel;
+
   @override
   Widget build(BuildContext context) {
+    _signUpModel = Provider.of<SignUpModel>(context, listen:true);
+
     return Scaffold(
       body: Column(
         children: [
@@ -78,6 +85,9 @@ class SignUpPage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(0),
                           ),
                         ),
+                        onChanged: (value) {
+                          _signUpModel.username = value;
+                        },
                       ),
                       Divider(
                         height: 20,
@@ -113,6 +123,9 @@ class SignUpPage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(0),
                           ),
                         ),
+                         onChanged: (value) {
+                          _signUpModel.email = value;
+                        },
                       ),
                       Divider(
                         height: 20,
@@ -148,17 +161,47 @@ class SignUpPage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(0),
                           ),
                         ),
+                          onChanged: (value) {
+                          _signUpModel.password = value;
+                        },
                       ),
                       Divider(
                         height: 30,
                         color: Colors.transparent,
                       ),
-                      Container(
-                        padding: EdgeInsets.symmetric(vertical: 20),
-                        alignment: Alignment.center,
-                        child: Text("SIGN UP",
-                            style: TextStyle(color: Colors.white)),
-                        color: Colors.black,
+                      GestureDetector(
+                        onTap:  () async {
+                          if (await _signUpModel.register()){
+                            Navigator.push(
+                            context,
+                            new MaterialPageRoute(
+                              builder: (context) => Home(),
+                            ),
+                          );
+                          } else {
+                            showDialog(
+                              context: context,
+                              builder: (ctx) => AlertDialog(
+                                title: Text("An error occured, try again later!"),
+                                actions: [
+                                  FlatButton(
+                                    child: Text("OK"),
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                  )
+                                ],
+                              ),
+                            );
+                          }
+                        },
+                                              child: Container(
+                          padding: EdgeInsets.symmetric(vertical: 20),
+                          alignment: Alignment.center,
+                          child: Text("SIGN UP",
+                              style: TextStyle(color: Colors.white)),
+                          color: Colors.black,
+                        ),
                       ),
                       GestureDetector(
                         onTap: () {

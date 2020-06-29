@@ -3,16 +3,13 @@ import 'package:recyclomedia/models/user.model.dart';
 
 class LoginService {
   Future<User> authenticate(String email, String password) async {
-    print(email);
-    print(password);
-
     Dio dio = Dio();
-    dio.options.headers['email'] = 'EdmundFBurrows@dayrep.com';
-    dio.options.headers['password'] = 'Esh4uo0aik';
+    dio.options.headers['email'] = email;
+    dio.options.headers['password'] = password;
 
     try {
       var response = await dio.get(
-        "https://recyclomedia.iconicto.com/api/user/me",
+        "https://recyclomedia.iconicto.com/api/users/me",
       );
 
       print(response);

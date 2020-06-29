@@ -1,8 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:recyclomedia/pages/home.page.dart';
 import 'package:recyclomedia/pages/login.page.dart';
 import 'package:recyclomedia/pages/signup.page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class LandingPage extends StatelessWidget {
+class LandingPage extends StatefulWidget {
+  @override
+  _LandingPageState createState() => _LandingPageState();
+}
+
+class _LandingPageState extends State<LandingPage> {
+  @override
+  void initState() {
+    super.initState();
+    checkLoggedIn();
+  }
+
+  void checkLoggedIn() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    var loggedIn = prefs.getBool('loggedIn');
+
+    if (loggedIn != null || loggedIn == false) {
+      Navigator.push(
+        context,
+        new MaterialPageRoute(
+          builder: (context) => Home(),
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
