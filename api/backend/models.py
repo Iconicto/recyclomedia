@@ -17,6 +17,7 @@ class User(models.Model):
     user_id = models.AutoField(editable=False, verbose_name='User ID', primary_key=True)
     first_name = models.CharField(max_length=100, blank=True, null=True)
     last_name = models.CharField(max_length=100, blank=True, null=True)
+    username = models.CharField(max_length=100, blank=False, null=False)
     email = models.EmailField(blank=False, null=False, unique=True)
     password = models.CharField(max_length=100, blank=False, null=False)
     experience_points = models.IntegerField(default=0, blank=False, null=False)

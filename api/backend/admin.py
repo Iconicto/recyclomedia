@@ -3,10 +3,10 @@ from .models import User, Organization, Event, Post, Badge
 
 
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('user_id', 'first_name', 'last_name', 'email', 'experience_points', 'profile_picture',
+    list_display = ('user_id', 'first_name', 'last_name', 'username', 'email', 'experience_points', 'profile_picture',
                     'badge_experience_points')
-    list_display_links = ('user_id', 'first_name', 'last_name', 'email', 'experience_points', 'profile_picture',
-                          'badge_experience_points')
+    list_display_links = ('user_id', 'first_name', 'last_name', 'username', 'email', 'experience_points',
+                          'profile_picture', 'badge_experience_points')
     list_filter = ('user_id', 'first_name', 'last_name', 'email')
     list_per_page = 30
 
