@@ -97,7 +97,7 @@ class AboutUsPageState extends State<AboutUsPage> {
                               ),
                               Container(
                                 child: Text(
-                                    "We, Iconicto are a team of 5 undergraduates from Sri Lanka who think.create!",
+                                    "We, Iconicto, are a team of 5 undergraduates from Sri Lanka who think.create!",
                                     textAlign: TextAlign.justify,
                                     style: TextStyle(fontSize: 17)),
                               )
@@ -115,10 +115,133 @@ class AboutUsPageState extends State<AboutUsPage> {
                     ],
                   ),
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Row(
+                        children: <Widget>[
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 10.0),
+                                  height: 60.0,
+                                  width: 60.0,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(50.0),
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                              "lib/assets/images/isala.jpg"))),
+                                ),
+                                Text(
+                                  "Isala",
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                            ),
+                          ),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 10.0),
+                                  height: 60.0,
+                                  width: 60.0,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(50.0),
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                              "lib/assets/images/suvin.jpg"))),
+                                ),
+                                Text(
+                                  "Suvin",
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                            ),
+                          ),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 10.0),
+                                  height: 60.0,
+                                  width: 60.0,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(50.0),
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                              "lib/assets/images/akash.jpg"))),
+                                ),
+                                Text(
+                                  "Akash",
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Row(
+                        children: <Widget>[
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 10.0),
+                                  height: 60.0,
+                                  width: 60.0,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(50.0),
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                              "lib/assets/images/visal.jpg"))),
+                                ),
+                                Text(
+                                  "Visal",
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                            ),
+                          ),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 10.0),
+                                  height: 60.0,
+                                  width: 60.0,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(50.0),
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                              "lib/assets/images/thivvyan.jpg"))),
+                                ),
+                                Text(
+                                  "Thivvyan",
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                  Column(
                     children: [
                       Text(
                         "All Rights Reserved. \nRecylcomedia 2020.",
                         textAlign: TextAlign.center,
+                        textScaleFactor: 0.8,
+                        style: TextStyle(color: Colors.red),
                       ),
                       Divider(
                         color: Colors.transparent,
