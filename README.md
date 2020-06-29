@@ -24,6 +24,10 @@ Recyclopedia is a vintage inspired digital platform that aims to save the planet
 
 Figma Design files - <https://www.figma.com/file/nSi5UHKdvqL2kS1OrRumID/Recyclomedia>
 
+## Demo
+![Demo UI](https://cdn.iconicto.com/recyclomedia/demo.gif)
+
+
 # Backend
 
 Recyclomedia backend is made using django rest framework and backed by postgress database. You can find full API documentation made with postman below. Also Django Rest's API explorer view can be accesed from [recyclomedia.iconicto.com/api](https://recyclomedia.iconicto.com/api).
