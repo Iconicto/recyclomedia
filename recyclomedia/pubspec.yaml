@@ -61,6 +61,7 @@ flutter:
     - assets/audio/click.wav
     - assets/audio/eventsound.wav
     - assets/audio/pageload.wav
+    - assets/audio/donate.wav
     - lib/assets/images/isala.jpg
     - lib/assets/images/suvin.jpg
     - lib/assets/images/akash.jpg

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:recyclomedia/fonts.dart';
 import 'package:recyclomedia/images.dart';
-
+import 'package:audioplayers/audio_cache.dart';
 import 'login.page.dart';
+
+const donatesound = "audio/donate.wav";
 
 class DonationsPage extends StatefulWidget {
   @override
@@ -10,6 +12,8 @@ class DonationsPage extends StatefulWidget {
 }
 
 class _DonationsPageState extends State<DonationsPage> {
+  static AudioCache player = new AudioCache();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +31,6 @@ class _DonationsPageState extends State<DonationsPage> {
                     fit: BoxFit.cover,
                   ),
                 ),
-
                 Positioned(
                   bottom: MediaQuery.of(context).viewPadding.top < 0 ? 65 : 20,
                   left: 0,
@@ -35,12 +38,16 @@ class _DonationsPageState extends State<DonationsPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           Navigator.pop(context);
                         },
                         child: Row(
                           children: [
-                            Icon(Icons.chevron_left, color: Colors.black, size: 40,),
+                            Icon(
+                              Icons.chevron_left,
+                              color: Colors.black,
+                              size: 40,
+                            ),
                             Text(
                               "Donations",
                               style: TextStyle(
@@ -73,7 +80,6 @@ class _DonationsPageState extends State<DonationsPage> {
           Expanded(
             flex: MediaQuery.of(context).size.height > 680 ? 1 : 2,
             child: Container(
-
               height: double.infinity,
               alignment: Alignment.center,
               child: Padding(
@@ -83,7 +89,10 @@ class _DonationsPageState extends State<DonationsPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                          "We are people of same earth trying to save the very world we live on. Our goal is to promote environmental activism and donate to charities. So help us make this world a better place.", style: TextStyle(fontSize: 18 ),textAlign: TextAlign.justify,),
+                        "We are people of same earth trying to save the very world we live on. Our goal is to promote environmental activism and donate to charities. So help us make this world a better place.",
+                        style: TextStyle(fontSize: 18),
+                        textAlign: TextAlign.justify,
+                      ),
                       Text("Amount"),
                       Divider(
                         height: 5,
@@ -120,28 +129,33 @@ class _DonationsPageState extends State<DonationsPage> {
                         height: 30,
                         color: Colors.transparent,
                       ),
-                      Container(
-                        padding: EdgeInsets.symmetric(vertical: 20),
-                        alignment: Alignment.center,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              height: 30,
-                              width: 30,
-                              child: Image.asset(
-                                Images.ringGIF,
-                                fit: BoxFit.cover,
+                      GestureDetector(
+                        onTap: () {
+                          player.play(donatesound);
+                        },
+                        child: Container(
+                          padding: EdgeInsets.symmetric(vertical: 20),
+                          alignment: Alignment.center,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                height: 30,
+                                width: 30,
+                                child: Image.asset(
+                                  Images.ringGIF,
+                                  fit: BoxFit.cover,
+                                ),
                               ),
-                            ),
-                            Divider(
-                              color: Colors.transparent,
-                            ),
-                            Text("DONATE",
-                                style: TextStyle(color: Colors.white)),
-                          ],
+                              Divider(
+                                color: Colors.transparent,
+                              ),
+                              Text("DONATE",
+                                  style: TextStyle(color: Colors.white)),
+                            ],
+                          ),
+                          color: Colors.black,
                         ),
-                        color: Colors.black,
                       ),
                     ],
                   ),

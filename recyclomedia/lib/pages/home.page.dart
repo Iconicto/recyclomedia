@@ -4,6 +4,9 @@ import 'package:recyclomedia/pages/events.page.dart';
 import 'package:recyclomedia/pages/profile.page.dart';
 import 'package:recyclomedia/pages/settings.page.dart';
 import 'dashboard.page.dart';
+import 'package:audioplayers/audio_cache.dart';
+
+const clicksound = "audio/click.wav";
 
 class Home extends StatefulWidget {
   _HomeState home = _HomeState();
@@ -74,7 +77,9 @@ class _HomeState extends State<Home> {
 
   //navigation tap handler
   void onTabTapped(int index) {
+    AudioCache player = new AudioCache();
     setState(() {
+      player.play(clicksound);
       _currentNavIndex = index;
       _pageController.animateToPage(index,
           duration: Duration(milliseconds: 500), curve: Curves.easeInOut);
