@@ -30,9 +30,8 @@ class UserCard extends StatelessWidget {
         child: Column(
           children: [
             Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  userName,
+              alignment: Alignment.centerLeft,
+              child: Text(userName,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: FontSize.userCardHeading,
@@ -61,7 +60,7 @@ class UserCard extends StatelessWidget {
               child: Container(
                 margin: vh > 680
                     ? EdgeInsets.only(top: Layout.contentSpacing)
-                    : EdgeInsets.only(top: 5),
+                    : EdgeInsets.only(top: 40),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -93,9 +92,22 @@ class UserCard extends StatelessWidget {
                     Text(
                       level.toString(),
                       style: TextStyle(
-                          color: Colors.white,
-                          fontSize: FontSize.userCardText,
-                          fontFamily: Fonts.SilkScreen),
+                        color: Colors.white,
+                        fontSize: FontSize.userCardText,
+                        fontFamily: Fonts.SilkScreen,
+                        shadows: <Shadow>[
+                          Shadow(
+                            offset: Offset(0, 0),
+                            blurRadius: 20.0,
+                            color: Colors.black,
+                          ),
+                          Shadow(
+                            offset: Offset(0, 0),
+                            blurRadius: 10.0,
+                            color: Colors.black,
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),

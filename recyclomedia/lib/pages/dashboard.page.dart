@@ -3,9 +3,14 @@ import 'package:recyclomedia/images.dart';
 import 'package:recyclomedia/layout.constants.dart';
 import 'package:recyclomedia/widgets/eventsCard.dart';
 import 'package:recyclomedia/widgets/userCard.widget.dart';
+import 'package:recyclomedia/pages/events.page.dart';
+import 'package:audioplayers/audio_cache.dart';
 
 import '../fonts.dart';
+import 'events.page.dart';
 import 'login.page.dart';
+
+const clicksound = "audio/click.wav";
 
 class DashboardPage extends StatefulWidget {
   final Color color;
@@ -20,6 +25,8 @@ class DashboardPage extends StatefulWidget {
 }
 
 class DashboardPageState extends State<DashboardPage> {
+  static AudioCache player = new AudioCache();
+
   @override
   Widget build(BuildContext context) {
     //Viewport
@@ -107,24 +114,64 @@ class DashboardPageState extends State<DashboardPage> {
           scrollDirection: Axis.vertical,
           physics: ScrollPhysics(),
           children: [
-            EventsCard("Beach Cleanup 2020", "from 8.30 am onwards", Images.sunset),
-            EventsCard("City Cleanup 2020", "from 9.30 am onwards", Images.palmsGIF),
-            EventsCard("Forest Cleanup 2020", "from 10.30 am onwards @SINGHARAJA RAIN FOREST", Images.forest),
-            EventsCard("Beach Cleanup 2020", "from 8.30 am onwards", Images.sunset),
-            EventsCard("Road Cleanup 2020", "from 10.30 am onwards", Images.palmsGIF),
-            EventsCard("Forest Cleanup 2020", "from 6.30 am onwards", Images.mountain),
+            GestureDetector(
+              onTap: () {
+                player.play(clicksound);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (ctx) => EventsPage(),
+                  ),
+                );
+              },
+              child: EventsCard("Iceberg Preservation Day",
+                  "from 9.00 am onwards", Images.iceberg),
+            ),
+            GestureDetector(
+              onTap: () {
+                player.play(clicksound);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (ctx) => EventsPage(),
+                  ),
+                );
+              },
+              child: EventsCard(
+                  "Reforesting Camp", "from 8.30 am onwards", Images.forest),
+            ),
+            GestureDetector(
+              onTap: () {
+                player.play(clicksound);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (ctx) => EventsPage(),
+                  ),
+                );
+              },
+              child: EventsCard("Preserve Medicinal Plants",
+                  "from 8.30 am onwards", Images.mountain),
+            ),
+//            eventsCard("Beach Cleanup 2020", Images.mountain),
+//            eventsCard("Akash's Gay Marriage", Images.forest),
+//            eventsCard("Akash's Gay Marriage", Images.sunset),
+//            eventsCard("Beach Cleanup 2020", Images.mountain),
+//            eventsCard("Akash's Gay Marriage", Images.forest),
+//            eventsCard("Akash's Gay Marriage", Images.sunset),
+
           ]),
     );
 
     return new Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              flex: 5,
-              child: Stack(
-                children: [
-                  Container(
+        body: SafeArea(
+      child: Column(
+        children: [
+          Expanded(
+            flex: 8,
+            child: Stack(
+              children: [
+                Container(
                     height: double.infinity,
                     width: double.infinity,
                     child: header),
@@ -132,7 +179,8 @@ class DashboardPageState extends State<DashboardPage> {
             ),
           ),
           Expanded(
-            flex: MediaQuery.of(context).size.height > 680 ? 6 : 6,
+            flex: MediaQuery.of(context).size.height > 680 ? 10 : 6,
+//            flex: MediaQuery.of(context).size.height > 680 ? 4 : 8,
             child: Container(
                 margin: EdgeInsets.symmetric(vertical: Layout.cardTopMargin),
                 height: double.infinity,

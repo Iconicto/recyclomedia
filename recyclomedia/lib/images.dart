@@ -1,4 +1,4 @@
-class Images{
+class Images {
   static const sunset = "lib/assets/images/eventsbg.png";
   static const forest = "lib/assets/images/eventbg2.jpg";
   static const mountain = "lib/assets/images/eventbg1.jpg";
@@ -9,4 +9,5 @@ class Images{
   static const sunsetCityGIF = "lib/assets/images/sunsetCity.gif";
   static const rainGIF = "lib/assets/images/rain.gif";
   static const urbanGIF = "lib/assets/images/urbanArea.gif";
+  static const iceberg = "lib/assets/images/iceburg.jpg";
 }

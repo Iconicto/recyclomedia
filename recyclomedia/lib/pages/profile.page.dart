@@ -44,7 +44,7 @@ class ProfilePageState extends State<ProfilePage> {
                       ),
                     ),
                     Text(
-                      "v15a1",
+                      "akassharjun",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 30,

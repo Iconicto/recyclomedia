@@ -4,6 +4,7 @@ import 'package:recyclomedia/images.dart';
 import 'package:recyclomedia/pages/donations.page.dart';
 import 'package:recyclomedia/pages/aboutus.page.dart';
 import 'package:recyclomedia/pages/landing.page.dart';
+import 'package:recyclomedia/pages/login.page.dart';
 
 const clicksound = "audio/click.wav";
 

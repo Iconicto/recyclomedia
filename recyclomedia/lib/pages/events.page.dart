@@ -116,13 +116,11 @@ class _EventsPageState extends State<EventsPage> {
     );
 
     return new Scaffold(
-      body: SafeArea(
-        child: Container(
+      body: Container(
             child: ListView(
           children: <Widget>[pageHeader, cardContainer],
         )),
-      ),
-    );
+      );
   }
 }
 

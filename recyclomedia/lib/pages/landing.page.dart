@@ -27,9 +27,9 @@ class LandingPage extends StatelessWidget {
                       "RECYCLOMEDIA",
                       style: TextStyle(
                         letterSpacing: 0,
-                          color: Colors.white,
-                          fontSize: 40,
-                          ),
+                        color: Colors.white,
+                        fontSize: 40,
+                      ),
                     ),
                   ),
                 ],
