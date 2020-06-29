@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audio_cache.dart';
+import 'package:recyclomedia/images.dart';
 
 const levelsound = "audio/pageload.wav";
 const eventsound = "audio/eventsound.wav";
@@ -26,8 +27,8 @@ class ProfilePageState extends State<ProfilePage> {
                 height: double.infinity,
                 width: double.infinity,
                 child: Image.asset(
-                  "lib/assets/images/login.jpg",
-                  fit: BoxFit.fill,
+                  Images.urbanGIF,
+                  fit: BoxFit.cover,
                 ),
               ),
               Positioned(
@@ -43,7 +44,7 @@ class ProfilePageState extends State<ProfilePage> {
                       ),
                     ),
                     Text(
-                      "v15a1",
+                      "akassharjun",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 30,

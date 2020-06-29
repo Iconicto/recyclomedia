@@ -123,7 +123,7 @@ class SignUpPage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(0),
                           ),
                         ),
-                         onChanged: (value) {
+                        onChanged: (value) {
                           _signUpModel.email = value;
                         },
                       ),
@@ -161,7 +161,7 @@ class SignUpPage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(0),
                           ),
                         ),
-                          onChanged: (value) {
+                        onChanged: (value) {
                           _signUpModel.password = value;
                         },
                       ),
@@ -173,11 +173,11 @@ class SignUpPage extends StatelessWidget {
                         onTap:  () async {
                           if (await _signUpModel.register()){
                             Navigator.push(
-                            context,
-                            new MaterialPageRoute(
-                              builder: (context) => Home(),
-                            ),
-                          );
+                              context,
+                              new MaterialPageRoute(
+                                builder: (context) => Home(),
+                              ),
+                            );
                           } else {
                             showDialog(
                               context: context,
@@ -195,7 +195,7 @@ class SignUpPage extends StatelessWidget {
                             );
                           }
                         },
-                                              child: Container(
+                        child: Container(
                           padding: EdgeInsets.symmetric(vertical: 20),
                           alignment: Alignment.center,
                           child: Text("SIGN UP",

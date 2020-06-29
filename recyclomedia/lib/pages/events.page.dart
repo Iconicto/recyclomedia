@@ -1,5 +1,6 @@
 import 'package:recyclomedia/api/Events/event.provider.dart';
 import 'package:flutter/material.dart';
+import 'package:recyclomedia/images.dart';
 import 'package:recyclomedia/models/event.model.dart';
 import 'package:recyclomedia/pages/eventDetails.page.dart';
 import '../widgets/eventsCard.dart';
@@ -32,7 +33,7 @@ class _EventsPageState extends State<EventsPage> {
         padding: EdgeInsets.only(left: 10.0, top: 30.0),
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("lib/assets/images/eventsbg.png"),
+            image: AssetImage(Images.sunsetCityGIF),
             fit: BoxFit.cover,
           ),
         ),
@@ -115,13 +116,11 @@ class _EventsPageState extends State<EventsPage> {
     );
 
     return new Scaffold(
-      body: SafeArea(
-        child: Container(
+      body: Container(
             child: ListView(
           children: <Widget>[pageHeader, cardContainer],
         )),
-      ),
-    );
+      );
   }
 }
 

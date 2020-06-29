@@ -39,17 +39,22 @@ class UserCard extends StatelessWidget {
                     shadows: <Shadow>[
                       Shadow(
                         offset: Offset(0, 0),
-                        blurRadius: 20.0,
+                        blurRadius: 30.0,
                         color: Colors.black,
                       ),
                       Shadow(
                         offset: Offset(0, 0),
-                        blurRadius: 10.0,
+                        blurRadius: 30.0,
+                        color: Colors.black,
+                      ),
+                      Shadow(
+                        offset: Offset(0, 0),
+                        blurRadius: 40.0,
                         color: Colors.black,
                       ),
                     ],
-                  )),
-            ),
+                  ),
+                )),
             Align(
               alignment: Alignment.centerLeft,
               child: Container(
@@ -68,12 +73,17 @@ class UserCard extends StatelessWidget {
                         shadows: <Shadow>[
                           Shadow(
                             offset: Offset(0, 0),
-                            blurRadius: 20.0,
+                            blurRadius: 30.0,
                             color: Colors.black,
                           ),
                           Shadow(
                             offset: Offset(0, 0),
-                            blurRadius: 10.0,
+                            blurRadius: 30.0,
+                            color: Colors.black,
+                          ),
+                          Shadow(
+                            offset: Offset(0, 0),
+                            blurRadius: 40.0,
                             color: Colors.black,
                           ),
                         ],

@@ -74,6 +74,11 @@ flutter:
     - lib/assets/images/akash.jpg
     - lib/assets/images/visal.jpg
     - lib/assets/images/thivvyan.jpg
+    - lib/assets/images/palms.gif
+    - lib/assets/images/rain.gif
+    - lib/assets/images/urbanArea.gif
+    - lib/assets/images/city.gif
+    - lib/assets/images/sunsetCity.gif
     - lib/assets/images/dashbg.png
     - lib/assets/images/iceburg.jpg
 
