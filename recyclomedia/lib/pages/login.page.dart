@@ -26,7 +26,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  top: MediaQuery.of(context).viewPadding.top < 0 ? 65 : 40,
+                  top: MediaQuery.of(context).viewPadding.top < 0 ? 65 : 65,
                   left: 25,
                   child: Text(
                     "Sign In",

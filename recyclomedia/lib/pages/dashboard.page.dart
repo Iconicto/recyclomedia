@@ -44,7 +44,7 @@ class DashboardPageState extends State<DashboardPage> {
         ),
         UserCard(
           userName: "Akassharjun Shanmugarajah",
-          imgurl: "lib/assets/images/dashbg.png",
+          imgurl: Images.rainGIF,
           label: "Green-o-lantern",
           level: 10,
         ),
@@ -159,6 +159,7 @@ class DashboardPageState extends State<DashboardPage> {
 //            eventsCard("Beach Cleanup 2020", Images.mountain),
 //            eventsCard("Akash's Gay Marriage", Images.forest),
 //            eventsCard("Akash's Gay Marriage", Images.sunset),
+
           ]),
     );
 
@@ -178,7 +179,8 @@ class DashboardPageState extends State<DashboardPage> {
             ),
           ),
           Expanded(
-            flex: MediaQuery.of(context).size.height > 680 ? 4 : 8,
+            flex: MediaQuery.of(context).size.height > 680 ? 10 : 6,
+//            flex: MediaQuery.of(context).size.height > 680 ? 4 : 8,
             child: Container(
                 margin: EdgeInsets.symmetric(vertical: Layout.cardTopMargin),
                 height: double.infinity,
