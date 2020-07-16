@@ -80,7 +80,7 @@ class _EventDetailsState extends State<EventDetails> {
                         width: 30.0,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage("lib/assets/images/calendar.png"),
+                            image: AssetImage("assets/images/calendar.png"),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -107,7 +107,7 @@ class _EventDetailsState extends State<EventDetails> {
                       width: 30.0,
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage("lib/assets/images/clock.png"),
+                          image: AssetImage("assets/images/clock.png"),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -182,7 +182,7 @@ class _EventDetailsState extends State<EventDetails> {
                   width: 30.0,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage("lib/assets/images/email.png"),
+                      image: AssetImage("assets/images/email.png"),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -202,17 +202,15 @@ class _EventDetailsState extends State<EventDetails> {
         ));
 
     return new Scaffold(
-      body: SafeArea(
-        child: Container(
-            child: ListView(
-          children: <Widget>[
-            pagerHeader,
-            eventOverview,
-            eventDescription,
-            organizerCard
-          ],
-        )),
-      ),
+      body: Container(
+          child: ListView(
+        children: <Widget>[
+          pagerHeader,
+          eventOverview,
+          eventDescription,
+          organizerCard
+        ],
+      )),
     );
   }
 }

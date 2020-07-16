@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:recyclomedia/images.dart';
+import 'package:recyclomedia/widgets/hero_banner.widget.dart';
 
 const levelsound = "audio/pageload.wav";
 const eventsound = "audio/eventsound.wav";
@@ -16,46 +17,40 @@ class ProfilePage extends StatefulWidget {
 
 class ProfilePageState extends State<ProfilePage> {
   static AudioCache player = new AudioCache();
+
+  Widget _buildHeroBannerContent() {
+    return Positioned(
+            bottom: MediaQuery.of(context).viewPadding.top < 0 ? 65 : 20,
+            left: 25,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Welcome back,",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                Text(
+                  "akassharjun",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Expanded(
-          child: Stack(
-            children: [
-              Container(
-                height: double.infinity,
-                width: double.infinity,
-                child: Image.asset(
-                  Images.urbanGIF,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Positioned(
-                bottom: MediaQuery.of(context).viewPadding.top < 0 ? 65 : 20,
-                left: 25,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Welcome back,",
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                    Text(
-                      "akassharjun",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+        HeroBanner(
+          imageURI: Images.sunset,
+          child: _buildHeroBannerContent()
         ),
         Expanded(
           flex: MediaQuery.of(context).size.height > 680 ? 1 : 2,
@@ -76,7 +71,7 @@ class ProfilePageState extends State<ProfilePage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Image.asset('lib/assets/images/level.png'),
+                          Image.asset('assets/images/level.png'),
                           Text(
                             "Level 10",
                             style: TextStyle(fontSize: 18),
@@ -99,7 +94,7 @@ class ProfilePageState extends State<ProfilePage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Image.asset('lib/assets/images/event.png'),
+                          Image.asset('assets/images/event.png'),
                           Text(
                             "10 Event(s)",
                             style: TextStyle(fontSize: 18),
@@ -128,7 +123,7 @@ class ProfilePageState extends State<ProfilePage> {
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Image.asset('lib/assets/images/beginner.png'),
+                        Image.asset('assets/images/beginner.png'),
                         Expanded(
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -157,7 +152,7 @@ class ProfilePageState extends State<ProfilePage> {
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Image.asset('lib/assets/images/earthlover.png'),
+                        Image.asset('assets/images/earthlover.png'),
                         Expanded(
                           child: Row(
                             mainAxisSize: MainAxisSize.max,

@@ -2,9 +2,9 @@ import 'package:audioplayers/audio_cache.dart';
 import 'package:flutter/material.dart';
 import 'package:recyclomedia/images.dart';
 import 'package:recyclomedia/pages/donations.page.dart';
-import 'package:recyclomedia/pages/aboutus.page.dart';
+import 'package:recyclomedia/pages/team.page.dart';
 import 'package:recyclomedia/pages/landing.page.dart';
-import 'package:recyclomedia/pages/login.page.dart';
+import 'package:recyclomedia/widgets/hero_banner.widget.dart';
 
 const clicksound = "audio/click.wav";
 
@@ -19,46 +19,40 @@ class SettingsPage extends StatefulWidget {
 
 class SettingsPageState extends State<SettingsPage> {
   static AudioCache player = new AudioCache();
+
+  Widget _buildHeroBannerContent() {
+    return Positioned(
+      bottom: MediaQuery.of(context).viewPadding.top < 0 ? 65 : 20,
+      left: 25,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "THIS IS",
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+          Text(
+            "SETTINGS",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Expanded(
-          child: Stack(
-            children: [
-              Container(
-                height: double.infinity,
-                width: double.infinity,
-                child: Image.asset(
-                  Images.cityGIF,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Positioned(
-                bottom: MediaQuery.of(context).viewPadding.top < 0 ? 65 : 20,
-                left: 25,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "THIS IS",
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                    Text(
-                      "SETTINGS",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+        HeroBanner(
+          imageURI: Images.cityGIF,
+          child: _buildHeroBannerContent(),
         ),
         Expanded(
           flex: MediaQuery.of(context).size.height > 680 ? 1 : 2,
@@ -90,9 +84,9 @@ class SettingsPageState extends State<SettingsPage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Image.asset('lib/assets/images/aboutus.png'),
+                            Image.asset('assets/images/aboutus.png'),
                             Text(
-                              "ABOUT US",
+                              "OUR TEAM",
                               style: TextStyle(fontSize: 18),
                             ),
                           ],
@@ -122,7 +116,7 @@ class SettingsPageState extends State<SettingsPage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Image.asset('lib/assets/images/donate.png'),
+                            Image.asset('assets/images/donate.png'),
                             Text(
                               "DONATE",
                               style: TextStyle(fontSize: 18),
@@ -154,7 +148,7 @@ class SettingsPageState extends State<SettingsPage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Image.asset('lib/assets/images/level.png'),
+                            Image.asset('assets/images/level.png'),
                             Text(
                               "Sign Out",
                               style: TextStyle(fontSize: 18),

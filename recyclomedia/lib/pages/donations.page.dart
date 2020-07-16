@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:recyclomedia/fonts.dart';
 import 'package:recyclomedia/images.dart';
 import 'package:audioplayers/audio_cache.dart';
-import 'login.page.dart';
+import 'package:recyclomedia/widgets/hero_banner.widget.dart';
 
 const donatesound = "audio/donate.wav";
 
@@ -14,48 +13,40 @@ class DonationsPage extends StatefulWidget {
 class _DonationsPageState extends State<DonationsPage> {
   static AudioCache player = new AudioCache();
 
+  Widget _buildHeroBannerContent() {
+    return Positioned(
+      bottom: MediaQuery.of(context).viewPadding.top < 0 ? 65 : 20,
+      left: 25,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Want to help us out?",
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+          Text(
+            "Donations",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
-          Expanded(
-            child: Stack(
-              children: [
-                Container(
-                  height: double.infinity,
-                  width: double.infinity,
-                  color: Colors.red,
-                  child: Image.asset(
-                    Images.donationsGIF,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                Positioned(
-                  bottom: MediaQuery.of(context).viewPadding.top < 0 ? 65 : 20,
-                  left: 0,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.chevron_left,
-                              color: Colors.black,
-                              size: 40,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+          HeroBanner(
+            imageURI: Images.donationsGIF,
+            child: _buildHeroBannerContent(),
           ),
           Expanded(
             flex: MediaQuery.of(context).size.height > 680 ? 1 : 2,
@@ -68,14 +59,6 @@ class _DonationsPageState extends State<DonationsPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        "Donations",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
                       Divider(
                         height: 10,
                         color: Colors.transparent,

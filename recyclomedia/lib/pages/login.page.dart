@@ -1,43 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:recyclomedia/images.dart';
 import 'package:recyclomedia/pages/home.page.dart';
 import 'package:recyclomedia/pages/signup.page.dart';
 import 'package:recyclomedia/provider/login.provider.dart';
+import 'package:recyclomedia/widgets/hero_banner.widget.dart';
 
 class LoginPage extends StatelessWidget {
-  LoginModel _loginModel;
+  static LoginModel _loginModel;
 
   @override
   Widget build(BuildContext context) {
     _loginModel = Provider.of<LoginModel>(context, listen: true);
 
+    Widget _buildHeroBannerContent() {
+      return Positioned(
+        top: MediaQuery.of(context).viewPadding.top < 0 ? 65 : 65,
+        left: 25,
+        child: Text(
+          "Sign In",
+          style: TextStyle(
+              color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold),
+        ),
+      );
+    }
+
     return Scaffold(
       body: Column(
         children: [
-          Expanded(
-            child: Stack(
-              children: [
-                Container(
-                  height: double.infinity,
-                  width: double.infinity,
-                  child: Image.asset(
-                    "lib/assets/images/login.jpg",
-                    fit: BoxFit.fill,
-                  ),
-                ),
-                Positioned(
-                  top: MediaQuery.of(context).viewPadding.top < 0 ? 65 : 65,
-                  left: 25,
-                  child: Text(
-                    "Sign In",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ],
-            ),
+          HeroBanner(
+            imageURI: Images.sunset,
+            child: _buildHeroBannerContent(),
           ),
           Expanded(
             flex: MediaQuery.of(context).size.height > 680 ? 1 : 2,
@@ -146,7 +139,7 @@ class LoginPage extends StatelessWidget {
                             Navigator.push(
                               context,
                               new MaterialPageRoute(
-                                builder: (context) => Home(),
+                                builder: (context) => HomePage(),
                               ),
                             );
                           } else {
