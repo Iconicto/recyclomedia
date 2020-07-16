@@ -11,7 +11,6 @@ class EventsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //Viewport
-    final vh = MediaQuery.of(context).size.height;
     final vw = MediaQuery.of(context).size.width;
 
     return new Container(

@@ -8,24 +8,17 @@ import 'package:audioplayers/audio_cache.dart';
 
 const clicksound = "audio/click.wav";
 
-class Home extends StatefulWidget {
-  _HomeState home = _HomeState();
+class HomePage extends StatefulWidget {
+  final _HomePageState home = _HomePageState();
+
   @override
   State<StatefulWidget> createState() {
-    return _HomeState();
+    return _HomePageState();
   }
 }
 
-class _HomeState extends State<Home> {
+class _HomePageState extends State<HomePage> {
   int _currentNavIndex = 0;
-
-  final List<Widget> _children = [
-    DashboardPage(Colors.blue),
-    EventsPage(),
-    ProfilePage(),
-    SettingsPage()
-  ];
-
   PageController _pageController;
 
   @override
@@ -65,10 +58,10 @@ class _HomeState extends State<Home> {
           onTap: onTabTapped,
           currentIndex: _currentNavIndex,
           items: [
-            NavigationItem(Icons.home, "H", "ome"),
-            NavigationItem(Icons.flag, "E", "vents"),
-            NavigationItem(Icons.person, "P", "rofile"),
-            NavigationItem(Icons.settings, "S", "ettings"),
+            navigationItem(Icons.home, "H", "ome"),
+            navigationItem(Icons.flag, "E", "vents"),
+            navigationItem(Icons.person, "P", "rofile"),
+            navigationItem(Icons.settings, "S", "ettings"),
           ],
         ),
       ),
@@ -86,7 +79,7 @@ class _HomeState extends State<Home> {
     });
   }
 
-  BottomNavigationBarItem NavigationItem(
+  BottomNavigationBarItem navigationItem(
       IconData icon, String underlinedNavTitleText, String navTitleText) {
     return BottomNavigationBarItem(
       icon: Icon(icon),

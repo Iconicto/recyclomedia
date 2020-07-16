@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:recyclomedia/fonts.dart';
-import 'package:recyclomedia/pages/landing.page.dart';
+import 'package:recyclomedia/pages/home.page.dart';
 import 'package:recyclomedia/provider/login.provider.dart';
 import 'package:recyclomedia/provider/signup.provider.dart';
 
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
           visualDensity: VisualDensity.adaptivePlatformDensity,
           fontFamily: Fonts.SilkScreen,
         ),
-        home: LandingPage(),
+        home: HomePage(),
       ),
     );
   }

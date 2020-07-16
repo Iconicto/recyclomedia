@@ -40,47 +40,47 @@ flutter:
   fonts:
     - family: SilkScreen
       fonts:
-        - asset: lib/assets/fonts/slkscr.ttf
-        - asset: lib/assets/fonts/slkscrb.ttf
+        - asset: assets/fonts/slkscr.ttf
+        - asset: assets/fonts/slkscrb.ttf
     - family: DisposableDroid
       fonts:
-        - asset: lib/assets/fonts/DisposableDroidBB.ttf
-        - asset: lib/assets/fonts/DisposableDroidBB_bld.ttf
+        - asset: assets/fonts/DisposableDroidBB.ttf
+        - asset: assets/fonts/DisposableDroidBB_bld.ttf
   assets:
-    - lib/assets/images/login.jpg
-    - lib/assets/images/signup.png
-    - lib/assets/images/event.png
-    - lib/assets/images/level.png
-    - lib/assets/images/earthlover.png
-    - lib/assets/images/beginner.png
-    - lib/assets/images/aboutus.png
-    - lib/assets/images/donate.png
-    - lib/assets/images/clock.png
-    - lib/assets/images/calendar.png
-    - lib/assets/images/loading.gif
-    - lib/assets/images/email.png
-    - lib/assets/images/error.gif
-    - lib/assets/images/eventbg1.jpg
-    - lib/assets/images/eventbg2.jpg
-    - lib/assets/images/eventsbg.png
-    - lib/assets/images/donations.gif
-    - lib/assets/images/rings.gif
+    - assets/images/login.jpg
+    - assets/images/signup.png
+    - assets/images/event.png
+    - assets/images/level.png
+    - assets/images/earthlover.png
+    - assets/images/beginner.png
+    - assets/images/aboutus.png
+    - assets/images/donate.png
+    - assets/images/clock.png
+    - assets/images/calendar.png
+    - assets/images/loading.gif
+    - assets/images/email.png
+    - assets/images/error.gif
+    - assets/images/eventbg1.jpg
+    - assets/images/eventbg2.jpg
+    - assets/images/eventsbg.png
+    - assets/images/donations.gif
+    - assets/images/rings.gif
     - assets/audio/click.wav
     - assets/audio/eventsound.wav
     - assets/audio/pageload.wav
     - assets/audio/donate.wav
-    - lib/assets/images/isala.jpg
-    - lib/assets/images/suvin.jpg
-    - lib/assets/images/akash.jpg
-    - lib/assets/images/visal.jpg
-    - lib/assets/images/thivvyan.jpg
-    - lib/assets/images/palms.gif
-    - lib/assets/images/rain.gif
-    - lib/assets/images/urbanArea.gif
-    - lib/assets/images/city.gif
-    - lib/assets/images/sunsetCity.gif
-    - lib/assets/images/dashbg.png
-    - lib/assets/images/iceburg.jpg
+    - assets/images/isala_piyarisi.jpg
+    - assets/images/suvin_nimnaka.jpg
+    - assets/images/akassharjun_shanmugarajah.jpg
+    - assets/images/visal_rajapakse.jpg
+    - assets/images/thivvyan_karuneswaran.jpg
+    - assets/images/palms.gif
+    - assets/images/rain.gif
+    - assets/images/urbanArea.gif
+    - assets/images/city.gif
+    - assets/images/sunsetCity.gif
+    - assets/images/dashbg.png
+    - assets/images/iceburg.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

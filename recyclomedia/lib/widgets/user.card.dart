@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recyclomedia/fonts.dart';
-import 'package:recyclomedia/layout.constants.dart';
+import 'package:recyclomedia/constants/layout.constants.dart';
 
 //Boarding Cards
 class UserCard extends StatelessWidget {

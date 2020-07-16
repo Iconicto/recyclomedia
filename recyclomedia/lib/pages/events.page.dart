@@ -2,10 +2,10 @@ import 'package:recyclomedia/api/Events/event.provider.dart';
 import 'package:flutter/material.dart';
 import 'package:recyclomedia/images.dart';
 import 'package:recyclomedia/models/event.model.dart';
-import 'package:recyclomedia/pages/eventDetails.page.dart';
-import '../widgets/eventsCard.dart';
+import 'package:recyclomedia/pages/event.page.dart';
 import 'package:audioplayers/audio_cache.dart';
-import 'login.page.dart';
+import 'package:recyclomedia/widgets/events.card.dart';
+import 'package:recyclomedia/widgets/hero_banner.widget.dart';
 
 const clicksound = "audio/click.wav";
 
@@ -22,39 +22,36 @@ class _EventsPageState extends State<EventsPage> {
     super.initState();
   }
 
-  @override
-  Widget build(BuildContext context) {
-    //Viewport
-    final vh = MediaQuery.of(context).size.height;
-    final vw = MediaQuery.of(context).size.width;
-
-    final pageHeader = new Container(
-        height: 0.30 * vh,
-        padding: EdgeInsets.only(left: 10.0, top: 30.0),
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(Images.sunsetCityGIF),
-            fit: BoxFit.cover,
+  Widget _buildHeroBannerContent() {
+    return Positioned(
+      bottom: MediaQuery.of(context).viewPadding.top < 0 ? 65 : 20,
+      left: 25,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Discover",
+            style: TextStyle(
+              color: Colors.white,
+            ),
           ),
-        ),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(
             "Events",
             style: TextStyle(
-                fontFamily: 'SilkScreen',
-                fontWeight: FontWeight.w700,
-                color: Colors.white),
-            textScaleFactor: 2,
+              color: Colors.white,
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-          Text(
-            "Discover the events near you...",
-            style: TextStyle(
-                fontFamily: 'SilkScreen',
-                //fontWeight: FontWeight.w700,
-                color: Colors.white),
-            textScaleFactor: 1,
-          )
-        ]));
+        ],
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    //Viewport
+    final vw = MediaQuery.of(context).size.width;
 
     final cardContainer = Container(
       margin: EdgeInsets.only(left: 18.0, right: 18.0),
@@ -76,7 +73,7 @@ class _EventsPageState extends State<EventsPage> {
                   width: 150.0,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage("lib/assets/images/loading.gif"),
+                      image: AssetImage("assets/images/loading.gif"),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -99,7 +96,7 @@ class _EventsPageState extends State<EventsPage> {
                     width: vw,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage("lib/assets/images/error.gif"),
+                        image: AssetImage("assets/images/error.gif"),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -115,12 +112,15 @@ class _EventsPageState extends State<EventsPage> {
       ),
     );
 
-    return new Scaffold(
-      body: Container(
-            child: ListView(
-          children: <Widget>[pageHeader, cardContainer],
-        )),
-      );
+    return Column(
+      children: [
+        HeroBanner(imageURI: Images.sunset, child: _buildHeroBannerContent()),
+        Expanded(
+          flex: MediaQuery.of(context).size.height > 680 ? 1 : 2,
+          child: SingleChildScrollView(child: cardContainer),
+        ),
+      ],
+    );
   }
 }
 

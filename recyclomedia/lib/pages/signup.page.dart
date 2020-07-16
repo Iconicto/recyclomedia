@@ -1,44 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:recyclomedia/images.dart';
 import 'package:recyclomedia/pages/home.page.dart';
 import 'package:recyclomedia/pages/login.page.dart';
 import 'package:recyclomedia/provider/signup.provider.dart';
+import 'package:recyclomedia/widgets/hero_banner.widget.dart';
 
 class SignUpPage extends StatelessWidget {
-  SignUpModel _signUpModel;
+  static SignUpModel _signUpModel;
+
+  Widget _buildHeroBannerContent(BuildContext context) {
+    return Positioned(
+      bottom: MediaQuery.of(context).viewPadding.top < 0 ? 65 : 20,
+      left: 25,
+      child: Text(
+        "Sign Up",
+        style: TextStyle(
+            color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    _signUpModel = Provider.of<SignUpModel>(context, listen:true);
+    _signUpModel = Provider.of<SignUpModel>(context, listen: true);
 
     return Scaffold(
       body: Column(
         children: [
-          Expanded(
-            child: Stack(
-              children: [
-                Container(
-                  height: double.infinity,
-                  width: double.infinity,
-                  color: Colors.red,
-                  child: Image.asset(
-                    "lib/assets/images/signup.png",
-                    fit: BoxFit.fill,
-                  ),
-                ),
-                Positioned(
-                  top: 65,
-                  left: 25,
-                  child: Text(
-                    "Sign Up",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold),
-                  ),
-                )
-              ],
-            ),
+          HeroBanner(
+            imageURI: Images.mountain,
+            child: _buildHeroBannerContent(context),
           ),
           Expanded(
             flex: MediaQuery.of(context).size.height > 680 ? 1 : 2,
@@ -170,19 +162,20 @@ class SignUpPage extends StatelessWidget {
                         color: Colors.transparent,
                       ),
                       GestureDetector(
-                        onTap:  () async {
-                          if (await _signUpModel.register()){
+                        onTap: () async {
+                          if (await _signUpModel.register()) {
                             Navigator.push(
                               context,
                               new MaterialPageRoute(
-                                builder: (context) => Home(),
+                                builder: (context) => HomePage(),
                               ),
                             );
                           } else {
                             showDialog(
                               context: context,
                               builder: (ctx) => AlertDialog(
-                                title: Text("An error occured, try again later!"),
+                                title:
+                                    Text("An error occured, try again later!"),
                                 actions: [
                                   FlatButton(
                                     child: Text("OK"),

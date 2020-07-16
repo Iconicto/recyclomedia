@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:recyclomedia/fonts.dart';
 import 'package:recyclomedia/images.dart';
-import 'package:recyclomedia/layout.constants.dart';
-import 'package:recyclomedia/widgets/eventsCard.dart';
-import 'package:recyclomedia/widgets/userCard.widget.dart';
+import 'package:recyclomedia/constants/layout.constants.dart';
+import 'package:recyclomedia/widgets/events.card.dart';
+import 'package:recyclomedia/widgets/user.card.dart';
 import 'package:recyclomedia/pages/events.page.dart';
 import 'package:audioplayers/audio_cache.dart';
-
-import '../fonts.dart';
-import 'events.page.dart';
-import 'login.page.dart';
 
 const clicksound = "audio/click.wav";
 
 class DashboardPage extends StatefulWidget {
   final Color color;
-  double screenSize;
+  static double screenSize;
 
   DashboardPage(this.color);
 
@@ -61,7 +58,6 @@ class DashboardPageState extends State<DashboardPage> {
               fontFamily: Fonts.SilkScreen, fontSize: FontSize.Heading),
         ),
         GestureDetector(
-          //TODO add onpress
           child: Container(
             child: Row(
               children: [

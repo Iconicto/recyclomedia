@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:recyclomedia/api/api.service.dart';
 import 'package:recyclomedia/models/user.model.dart';
 
-class LoginService {
+class LoginService extends Api {
   Future<User> authenticate(String email, String password) async {
     Dio dio = Dio();
     dio.options.headers['email'] = email;
@@ -9,7 +10,7 @@ class LoginService {
 
     try {
       var response = await dio.get(
-        "https://recyclomedia.iconicto.com/api/users/me",
+        "$Api.BASE_URL/users/me",
       );
 
       print(response);
